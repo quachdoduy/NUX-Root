@@ -11,8 +11,8 @@ Notes on project implementation with Linux.
 >Linux in general and Ubuntu in particular are not only powerful open source operating systems but also powerful tools that help me solve many practical problems in projects. In this blog, I will share my practical experiences, from system administration, performance optimization to automation with powerful tools on Linux. Hopefully this will be a place to help you discover the most useful tricks!
 
 # TABLE OF CONTENTS
-- [Table of Contents]()
-- [General]()
+- [Table of Contents](#table-of-contents)
+- [General](https://github.com/quachdoduy/NUX-Root/blob/main/sources/Gen-Nux-CLi.md)
 
 
 *[Back to Top](#nux-root)*
