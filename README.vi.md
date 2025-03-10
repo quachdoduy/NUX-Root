@@ -13,6 +13,14 @@ Ghi chú về việc triển khai dự án với Linux.
 # MỤC LỤC
 - [Mục lục](#mục-lục)
 - [Cơ bản](https://github.com/quachdoduy/NUX-Root/blob/main/sources/Gen-Nux-CLi.vi.md)
+- Tools for Linux
+    - [Net-Tools](https://github.com/ecki/net-tools)
+    - [IPRoute2](https://wiki.linuxfoundation.org/networking/iproute2)
+    - [MTR](https://www.bitwizard.nl/mtr/)
+- System
+    - [Keep Alived](https://www.keepalived.org/)
+    - [NTP Server]()
+    - [DHCP Server]()
 
 
 *[Lên đầu trang](#nux-root)*
