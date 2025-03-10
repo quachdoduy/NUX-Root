@@ -11,8 +11,8 @@ Ghi chú về việc triển khai dự án với Linux.
 >Linux nói chung và Ubuntu nói riêng không chỉ là một hệ điều hành mã nguồn mở mạnh mẽ, mà còn là công cụ đắc lực giúp tôi giải quyết nhiều bài toán thực tế trong các dự án. Trong blog này, tôi sẽ chia sẻ những kinh nghiệm thực tiễn, từ quản trị hệ thống, tối ưu hiệu suất đến tự động hóa với các công cụ mạnh mẽ trên Linux. Hy vọng đây sẽ là nơi giúp bạn khám phá những thủ thuật hữu ích nhất!
 
 # MỤC LỤC
-- [Mục lục]()
-- [Cơ bản]()
+- [Mục lục](#mục-lục)
+- [Cơ bản](https://github.com/quachdoduy/NUX-Root/blob/main/sources/Gen-Nux-CLi.md)
 
 
 *[Lên đầu trang](#nux-root)*
