@@ -13,6 +13,8 @@ Ghi chú về việc triển khai dự án với Linux.
 - [ENABLE ROOT USER](#enable-root-user)
 - [ALLOW SSH FOR ROOT USER](#allow-ssh-for-root-user)
 - [REMOVE USER ACCOUNT](#remove-user-account)
+- [INSTALL TOOLS](#install-tools)
+- [UPDATE NEW PACKAGE](#update-new-package)
 
 # ENABLE ROOT USER
 >Hệ thống máy chủ Ubuntu mặc định không kích hoạt tài khoản root sau khi cài đặt thành công. Do đó ta kích hoạt tài khoản root như dưới đây.
