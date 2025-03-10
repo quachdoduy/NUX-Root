@@ -13,6 +13,15 @@ Notes on project implementation with Linux.
 # TABLE OF CONTENTS
 - [Table of Contents](#table-of-contents)
 - [General](https://github.com/quachdoduy/NUX-Root/blob/main/sources/Gen-Nux-CLi.md)
+- Tools for Linux
+    - [Net-Tools](https://github.com/ecki/net-tools)
+    - [IPRoute2](https://wiki.linuxfoundation.org/networking/iproute2)
+    - [MTR](https://www.bitwizard.nl/mtr/)
+- System
+    - [Keep Alived](https://www.keepalived.org/)
+    - [NTP Server]()
+    - [DHCP Server]()
+    - 
 
 
 *[Back to Top](#nux-root)*
