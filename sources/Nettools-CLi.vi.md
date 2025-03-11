@@ -11,6 +11,18 @@ Notes on project implementation with Linux.
 
 # TABLE OF CONTENTS
 - [TABLE OF CONTENTS](#table-of-contents)
+- [PREFACE](#preface)
+    - [Khởi đầu và phát triển ban đầu](#khởi-đầu-và-phát-triển-ban-đầu)
+    - [Phiên bản và phát triển chính](#phiên-bản-và-phát-triển-chính)
+    - [Ngừng phát triển và thay thế](#ngừng-phát-triển-và-thay-thế)
+    - [Công cụ thay thế hiện đại](#công-cụ-thay-thế-hiện-đại)
+    - [Tình trạng hiện tại](#tình-trạng-hiện-tại)
+    - [Tham khảo tài liệu gốc](#tham-khảo-tài-liệu-gốc)
+- [COMMONLY USED COMMANDS](#commonly-used-commands)
+    - [ifconfig](#ifconfig)
+    - [arp](#arp)
+    - [route](#route)
+    - [netstat](#netstat)
 
 # PREFACE
 Bộ công cụ **net-tools** là một tập hợp các lệnh quản lý mạng trên hệ điều hành Unix/Linux, được sử dụng rộng rãi trong nhiều năm trước khi bị thay thế bởi **iproute2**.
