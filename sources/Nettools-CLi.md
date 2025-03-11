@@ -124,11 +124,12 @@ The **net-tools** toolkit is a collection of network management commands on Unix
     `[-4|--inet] [-6|--inet6] [--protocol={inet,inet6,unix,ipx,ax25,netrom,ddp, ... } ] [--unix|-x] [--inet|--ip|--tcpip] [--ax25] [--x25] [--rose] [--ash] [--ipx] [--netrom] [--ddp|--appletalk] [--econet|--ec]`
 - Description:
     - **Netstat** prints information about the Linux networking subsystem.
-    - The type of information printed is controlled by the first argument, as follows:
-        `-r` or `--route` : Display the kernel routing tables.
-        `-g` or `--groups` : Display multicast group membership information for IPv4 and IPv6.
-        `-i` or `--interfaces` : Display a table of all network interfaces.
-        `-M` or `--masquerade` : Display a list of masqueraded connections.
+    - The type of information printed is controlled by the first argument, as follows:<br>
+        `-r` or `--route` : Display the kernel routing tables.<br>
+        `-g` or `--groups` : Display multicast group membership information for IPv4 and IPv6.<br>
+        `-i` or `--interfaces` : Display a table of all network interfaces.<br>
+        `-M` or `--masquerade` : Display a list of masqueraded connections.<br>
         `-s` or `--statistics` : Display summary statistics for each protocol.
+
 
 *[Back to Top](#nux-root--nettoolsn-linux-cli)*
