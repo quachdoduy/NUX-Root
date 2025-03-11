@@ -11,6 +11,18 @@ Notes on project implementation with Linux.
 
 # TABLE OF CONTENTS
 - [TABLE OF CONTENTS](#table-of-contents)
+- [PREFACE](#preface)
+    - [Inception and initial development](#inception-and-initial-development)
+    - [Versions and major developments](#versions-and-major-developments)
+    - [Stop development and replace](#stop-development-and-replace)
+    - [Modern replacement tools](#modern-replacement-tools)
+    - [Current status](#current-status)
+    - [Refer to original document](#refer-to-original-document)
+- [COMMONLY USED COMMANDS](#commonly-used-commands)
+    - [ifconfig](#ifconfig)
+    - [arp](#arp)
+    - [route](#route)
+    - [netstat](#netstat)
 
 # PREFACE
 The **net-tools** toolkit is a collection of network management commands on Unix/Linux operating systems, which was widely used for many years before being replaced by **iproute2**.
