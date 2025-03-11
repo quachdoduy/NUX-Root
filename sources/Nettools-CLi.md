@@ -138,6 +138,7 @@ The **net-tools** toolkit is a collection of network management commands on Unix
 - Examples:<br>
     `netstat -a` : Displays all active sockets (TCP/UDP), including listening ports (`LISTEN`).<br>
     `netstat -l` : Displays a list of ports that the system is listening on.<br>
-    `netstat -an | grep ":22"` : Check connections on port `22` (SSH).
+    `netstat -an | grep ":22"` : Check connections on port `22` (SSH).<br>
+    `netstat -utnpl` : My favorite command.
 
 *[Back to Top](#nux-root--nettoolsn-linux-cli)*
