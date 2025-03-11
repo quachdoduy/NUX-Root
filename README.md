@@ -14,7 +14,7 @@ Notes on project implementation with Linux.
 - [Table of Contents](#table-of-contents)
 - [General](https://github.com/quachdoduy/NUX-Root/blob/main/sources/Gen-Nux-CLi.md)
 - Tools for Linux
-    - [Net-Tools](/blob/main/sources/Nettools-CLi.md)
+    - [Net-Tools](sources/Nettools-CLi.md)
     - [IPRoute2](https://wiki.linuxfoundation.org/networking/iproute2)
     - [MTR](https://www.bitwizard.nl/mtr/)
 - System
