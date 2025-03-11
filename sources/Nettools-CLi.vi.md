@@ -113,5 +113,31 @@ Bộ công cụ **net-tools** là một tập hợp các lệnh quản lý mạn
     `route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0` : Đây là một tài liệu mơ hồ để mọi người biết cách thực hiện. Điều này thiết lập tất cả các tuyến IP **class D (multicast)*** đi qua "**eth0**". Đây là dòng cấu hình bình thường chính xác với một hạt nhân đa hướng.
 
 ## netstat
+- Lưu ý:
+    *Chương trình này đã lỗi thời.*
+    - Thay thế cho **netstat** là **ss**.
+    - Thay thế cho **netstat -r** là **ip route**.
+    - Thay thế cho **netstat -i** là **ip -s link**.
+    - Thay thế cho **netstat -g** là **ip maddr**.
+- Tóm tắt:<br>
+    `netstat [*address_family_options*] [--tcp|-t] [--udp|-u] [--udplite|-U] [--raw|-w] [--listening|-l] [--all|-a] [--numeric|-n] [--numeric-hosts] [--numeric-ports] [--numeric-users] [--symbolic|-N] [--extend|-e[--extend|-e]] [--timers|-o] [--program|-p] [--verbose|-v] [--continuous|-c] [--wide|-W] netstat {--route|-r} [address_family_options] [--extend|-e[--extend|-e]] [--verbose|-v] [--numeric|-n] [--numeric-hosts] [--numeric-ports] [--numeric-users] [--continuous|-c] netstat {--interfaces|-i} [--all|-a] [--extend|-e[--extend|-e]] [--verbose|-v] [--program|-p] [--numeric|-n] [--numeric-hosts] [--numeric-ports] [--numeric-users] [--continuous|-c] netstat {--groups|-g} [--numeric|-n] [--numeric-hosts] [--numeric-ports] [--numeric-users] [--continuous|-c] netstat {--masquerade|-M} [--extend|-e] [--numeric|-n] [--numeric-hosts] [--numeric-ports] [--numeric-users] [--continuous|-c] netstat {--statistics|-s} [--tcp|-t] [--udp|-u] [--udplite|-U] [--raw|-w] netstat {--version|-V} netstat {--help|-h} *address_family_options*:`<br>
+    `[-4|--inet] [-6|--inet6] [--protocol={inet,inet6,unix,ipx,ax25,netrom,ddp, ... } ] [--unix|-x] [--inet|--ip|--tcpip] [--ax25] [--x25] [--rose] [--ash] [--ipx] [--netrom] [--ddp|--appletalk] [--econet|--ec]`
+- Miêu tả:
+    - **Netstat** in thông tin về hệ thống mạng Linux.
+    - Loại thông tin được in được kiểm soát bởi đối số đầu tiên, như sau:<br>
+        `-r` hoặc `--route` : Hiển thị bảng định tuyến hạt nhân.<br>
+        `-g` hoặc `--groups` : Hiển thị thông tin thành viên nhóm đa hướng cho IPv4 và IPv6.<br>
+        `-i` hoặc `--interfaces` : Hiển thị bảng tất cả các giao diện mạng.<br>
+        `-M` hoặc `--masquerade` : Hiển thị danh sách các kết nối được ngụy trang.<br>
+        `-s` hoặc `--statistics` : Hiển thị số liệu thống kê tóm tắt cho từng giao thức.
+- Tùy chọn:<br>
+    `-v` or `--verbose` : Nói cho người dùng biết những gì đang diễn ra bằng cách nói dài dòng. Đặc biệt là in một số thông tin hữu ích về các họ địa chỉ chưa được cấu hình.<br>
+    `-W` or `--wide` : Không cắt bớt địa chỉ IP bằng cách sử dụng đầu ra rộng như cần thiết. Hiện tại, điều này là tùy chọn để không làm hỏng các tập lệnh hiện có.<br>
+    `-n` or `--numeric` : Hiển thị địa chỉ số thay vì cố gắng xác định tên máy chủ, cổng hoặc tên người dùng tượng trưng.<br>
+    *Để biết thêm thông tin, vui lòng tham khảo tài liệu gốc.*
+- Ví dụ:<br>
+    `netstat -a` : Hiển thị tất cả các socket đang hoạt động (TCP/UDP), bao gồm cả các cổng đang lắng nghe (`LISTEN`).<br>
+    `netstat -l` : Hiển thị danh sách các cổng mà hệ thống đang lắng nghe.<br>
+    `netstat -an | grep ":22"` : Kiểm tra kết nối trên cổng `22` (SSH).
 
 *[Lên đầu trang](#nux-root--nettools-linux-cli)*
