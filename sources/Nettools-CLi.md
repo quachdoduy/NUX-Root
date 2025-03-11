@@ -45,4 +45,31 @@ The **net-tools** toolkit is a collection of network management commands on Unix
 - Bernd Eckenfels's GitHub: https://github.com/ecki/net-tools
 - Linux Kernel Archives page: https://www.kernel.org/
 
+# COMMONLY USED COMMANDS
+
+## ifconfig
+- Synopsis:
+    `ifconfig [-v] [-a] [-s] [interface]`
+    `ifconfig [-v] interface [aftype] options | address ...`
+- Description:
+    - Ifconfig is used to configure the kernel-resident network interfaces. It is used at boot time to set up interfaces as necessary. After that, it is usually only needed when debugging or when system tuning is needed.
+    - If no arguments are given, ifconfig displays the status of the currently active interfaces. If a single interface argument is given, it displays the status of the given interface only; if a single -a argument is given, it displays the status of all interfaces, even those that are down. Otherwise, it configures an interface.
+- Options:
+    `-a` : display all interfaces which are currently available, even if down.
+    `-s` : display a short list (like `netstat -i`).
+    `-v` : be more verbose for some error conditions.
+    *For more, please refer to the original document.*
+- Example:
+    `ifconfig` : Displays all active network interfaces (with IP addresses).
+    `ifconfig -a` : Show all network interfaces including inactive interfaces.
+    `ifconfig eth0 192.168.1.100 netmask 255.255.255.0` : Assign IP address `192.168.1.100` with subnet mask `255.255.255.0` to interface `eth0`.
+    `ifconfig eth0 up` : Enable network interface.
+    `ifconfig eth0 down` : Disable network interface.
+
+## arp
+
+## route
+
+## netstat
+
 *[Back to Top](#nux-root--nettoolsn-linux-cli)*
