@@ -21,7 +21,6 @@ Notes on project implementation with Linux.
     - [Keep Alived](https://www.keepalived.org/)
     - [NTP Server]()
     - [DHCP Server]()
-    - 
 
 
 *[Back to Top](#nux-root)*
