@@ -67,6 +67,16 @@ The **net-tools** toolkit is a collection of network management commands on Unix
     `ifconfig eth0 down` : Disable network interface.
 
 ## arp
+- Synopsis:
+    `arp [-vn] [-H type] [-i if] [-ae] [hostname]`
+    `arp [-v] [-i if] -d hostname [pub]`
+    `arp [-v] [-H type] [-i if] -s hostname hw_addr [temp]`
+    `arp [-v] [-H type] [-i if] -s hostname hw_addr [netmask nm] pub`
+    `arp [-v] [-H type] [-i if] -Ds hostname ifname [netmask nm] pub`
+    `arp [-vnD] [-H type] [-i if] -f [filename]`
+- Description:
+    - Arp manipulates or displays the kernel's IPv4 network neighbour cache. It can add entries to the table, delete one or display the current content.
+    - ARP stands for Address Resolution Protocol, which is used to find the media access control address of a network neighbour for a given IPv4 Address.   
 
 ## route
 
