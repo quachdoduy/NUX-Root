@@ -10,7 +10,7 @@ Notes on project implementation with Linux.
 [![donate with buymeacoffe](https://img.shields.io/badge/Like_it%3F-Donate!-blue?logo=githubsponsors&logoColor=orange&style=flat)](https://buymeacoffee.com/quachdoduy)
 
 # TABLE OF CONTENTS
-- [TABLE OF CONTENTS](#nux-root--general-linux-cli)
+- [TABLE OF CONTENTS](#table-of-contents)
 - [ENABLE ROOT USER](#enable-root-user)
 - [ALLOW SSH FOR ROOT USER](#allow-ssh-for-root-user)
 - [REMOVE USER ACCOUNT](#remove-user-account)
