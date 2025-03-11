@@ -99,8 +99,18 @@ The **net-tools** toolkit is a collection of network management commands on Unix
 - Description:
     - **Route** manipulates the kernel's IP routing tables. Its primary use is to set up static routes to specific hosts or networks via an interface after it has been configured with the [ifconfig](#ifconfig)(8) program.
     - When the **add** or **del** options are used, **route** modifies the routing tables. Without these options, **route** displays the current contents of the routing tables.
-- Options:
-
+- Options:<br>
+    `-A family` : use the specified address family (eg `inet`). Use **route --help** for a full list. You can use **-6** as an alias for **--inet6** and **-4** as an alias for **-A inet**.<br>
+    `-F` : operate on the kernel's FIB (Forwarding Information Base) routing table. This is the default.<br>
+    `-C` : operate on the kernel's routing cache.<br>
+    `-n` : show numerical addresses instead of trying to determine symbolic host names. This is useful if you are trying to determine why the route to your nameserver has vanished.<br>
+    `del` : delete a route.<br>
+    `add` : add a new route.<br>
+    *For more, please refer to the original document.*
+- Examples:<br>
+    `route add -net 127.0.0.0 netmask 255.0.0.0 dev lo` : adds the normal **loopback** entry, using netmask **255.0.0.0** and associated with the "**lo**" device.<br>
+    `route add -net 192.56.76.0 netmask 255.255.255.0 dev eth0` : adds a route to the local network **192.56.76.x** via "**eth0**". The word "**dev**" can be omitted here.<br>
+    `route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0` : This is an obscure one documented so people know how to do it. This sets all of the **class D (multicast)** IP routes to go via "**eth0**". This is the correct normal configuration line with a multicasting kernel.
 
 ## netstat
 
