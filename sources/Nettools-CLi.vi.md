@@ -49,7 +49,7 @@ Bộ công cụ **net-tools** là một tập hợp các lệnh quản lý mạn
 
 ## ifconfig
 - Tóm tắt:
-    `ifconfig [-v] [-a] [-s] [interface]`
+    `ifconfig [-v] [-a] [-s] [interface]`<br>
     `ifconfig [-v] interface [aftype] options | address ...`
 - Miêu tả:
     - Ifconfig được sử dụng để cấu hình giao diện mạng trú ngụ trong nhân. Nó được sử dụng tại thời điểm khởi động để thiết lập giao diện khi cần thiết. Sau đó, nó thường chỉ cần thiết khi gỡ lỗi hoặc khi cần điều chỉnh hệ thống.
@@ -68,11 +68,11 @@ Bộ công cụ **net-tools** là một tập hợp các lệnh quản lý mạn
 
 ## arp
 - Tóm tắt:
-    `arp [-vn] [-H type] [-i if] [-ae] [hostname]`
-    `arp [-v] [-i if] -d hostname [pub]`
-    `arp [-v] [-H type] [-i if] -s hostname hw_addr [temp]`
-    `arp [-v] [-H type] [-i if] -s hostname hw_addr [netmask nm] pub`
-    `arp [-v] [-H type] [-i if] -Ds hostname ifname [netmask nm] pub`
+    `arp [-vn] [-H type] [-i if] [-ae] [hostname]`<br>
+    `arp [-v] [-i if] -d hostname [pub]`<br>
+    `arp [-v] [-H type] [-i if] -s hostname hw_addr [temp]`<br>
+    `arp [-v] [-H type] [-i if] -s hostname hw_addr [netmask nm] pub`<br>
+    `arp [-v] [-H type] [-i if] -Ds hostname ifname [netmask nm] pub`<br>
     `arp [-vnD] [-H type] [-i if] -f [filename]`
 - Miêu tả:
     - Arp thao tác hoặc hiển thị bộ nhớ đệm mạng lân cận IPv4 của hạt nhân. Nó có thể thêm mục vào bảng, xóa một mục hoặc hiển thị nội dung hiện tại.
