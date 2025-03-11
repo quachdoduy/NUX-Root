@@ -48,7 +48,7 @@ The **net-tools** toolkit is a collection of network management commands on Unix
 # COMMONLY USED COMMANDS
 
 ## ifconfig
-- Synopsis:
+- Synopsis:<br>
     `ifconfig [-v] [-a] [-s] [interface]`<br>
     `ifconfig [-v] interface [aftype] options | address ...`
 - Description:
@@ -67,7 +67,7 @@ The **net-tools** toolkit is a collection of network management commands on Unix
     `ifconfig eth0 down` : Disable network interface.
 
 ## arp
-- Synopsis:
+- Synopsis:<br>
     `arp [-vn] [-H type] [-i if] [-ae] [hostname]`<br>
     `arp [-v] [-i if] -d hostname [pub]`<br>
     `arp [-v] [-H type] [-i if] -s hostname hw_addr [temp]`<br>
