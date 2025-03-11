@@ -153,4 +153,4 @@ The **net-tools** toolkit is a collection of network management commands on Unix
     `netstat -an | grep ":22"` : Check connections on port `22` (SSH).<br>
     `netstat -utnpl` : My favorite command.
 
-*[Back to Top](#nux-root--nettoolsn-linux-cli)*
+*[Back to Top](#nux-root--nettools-linux-cli)*
