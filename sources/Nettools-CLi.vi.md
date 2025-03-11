@@ -54,16 +54,16 @@ Bộ công cụ **net-tools** là một tập hợp các lệnh quản lý mạn
 - Miêu tả:
     - Ifconfig được sử dụng để cấu hình giao diện mạng trú ngụ trong nhân. Nó được sử dụng tại thời điểm khởi động để thiết lập giao diện khi cần thiết. Sau đó, nó thường chỉ cần thiết khi gỡ lỗi hoặc khi cần điều chỉnh hệ thống.
     - Nếu không có đối số nào được đưa ra, ifconfig sẽ hiển thị trạng thái của các giao diện đang hoạt động. Nếu chỉ có một đối số giao diện, nó sẽ chỉ hiển thị trạng thái của giao diện đã cho; nếu chỉ có một đối số -a, nó sẽ hiển thị trạng thái của tất cả các giao diện, ngay cả những giao diện đã ngừng hoạt động. Nếu không, nó sẽ cấu hình một giao diện.
-- Tùy chọn:
-    `-a` : hiển thị tất cả các giao diện hiện có, ngay cả khi đã ngừng hoạt động.
-    `-s` : hiển thị danh sách ngắn (như `netstat -i`).
-    `-v` : sẽ chi tiết hơn đối với một số điều kiện lỗi.
+- Tùy chọn:<br>
+    `-a` : hiển thị tất cả các giao diện hiện có, ngay cả khi đã ngừng hoạt động.<br>
+    `-s` : hiển thị danh sách ngắn (như `netstat -i`).<br>
+    `-v` : sẽ chi tiết hơn đối với một số điều kiện lỗi.<br>
     *Để biết thêm thông tin, vui lòng tham khảo tài liệu gốc.*
-- Ví dụ:
-    `ifconfig` : Hiển thị tất cả các giao diện mạng đang hoạt động (có địa chỉ IP).
-    `ifconfig -a` : Hiển thị tất cả các giao diện mạng bao gồm cả các giao diện không hoạt động.
-    `ifconfig eth0 192.168.1.100 netmask 255.255.255.0` : Gán địa chỉ IP `192.168.1.100` với mặt nạ mạng con `255.255.255.0` cho giao diện `eth0`.
-    `ifconfig eth0 up` : Bật giao diện mạng.
+- Ví dụ:<br>
+    `ifconfig` : Hiển thị tất cả các giao diện mạng đang hoạt động (có địa chỉ IP).<br>
+    `ifconfig -a` : Hiển thị tất cả các giao diện mạng bao gồm cả các giao diện không hoạt động.<br>
+    `ifconfig eth0 192.168.1.100 netmask 255.255.255.0` : Gán địa chỉ IP `192.168.1.100` với mặt nạ mạng con `255.255.255.0` cho giao diện `eth0`.<br>
+    `ifconfig eth0 up` : Bật giao diện mạng.<br>
     `ifconfig eth0 down` : Vô hiệu hóa giao diện mạng.
 
 ## arp
@@ -81,16 +81,16 @@ Bộ công cụ **net-tools** là một tập hợp các lệnh quản lý mạn
     - **arp** không có chỉ định chế độ sẽ in nội dung hiện tại của bảng. Có thể giới hạn số mục được in bằng cách chỉ định loại địa chỉ phần cứng, tên giao diện hoặc địa chỉ máy chủ.
     - **arp -d** *address* sẽ xóa 1 mục trong bảng ARP. Cần có quyền root hoặc netadmin để thực hiện việc này. Mục được tìm thấy theo địa chỉ IP. Nếu tên máy chủ được cung cấp, nó sẽ được giải quyết trước khi tra cứu mục trong bảng ARP.
     - **arp -s** *address hw_addr* được sử dụng để thiết lập một mục bảng mới. Định dạng của tham số hw_addr phụ thuộc vào lớp phần cứng, nhưng đối với hầu hết các lớp, người ta có thể cho rằng có thể sử dụng cách trình bày thông thường. Đối với lớp Ethernet, đây là 6 byte ở dạng thập lục phân, được phân tách bằng dấu hai chấm. Khi thêm các mục proxy arp (tức là các mục có cờ publish được đặt), có thể chỉ định một netmask cho proxy arp cho toàn bộ các mạng con. Đây không phải là cách làm tốt, nhưng được các kernel cũ hơn hỗ trợ vì nó có thể hữu ích. Nếu cờ temp không được cung cấp, các mục sẽ được lưu trữ cố định vào bộ đệm ARP. Để đơn giản hóa việc thiết lập các mục cho một trong các giao diện mạng của riêng bạn, bạn có thể sử dụng biểu mẫu arp -Ds address ifname. Trong trường hợp đó, địa chỉ phần cứng được lấy từ giao diện có tên đã chỉ định.
-- Tùy chọn:
-    `-v` hoặc `--verbose` : Hiển thị rõ ràng cho người dùng biết chuyện gì đang xảy ra.
-    `-n` hoặc `--numeric` : Hiển thị địa chỉ số thay vì cố gắng xác định tên máy chủ, cổng hoặc tên người dùng tượng trưng.
-    `-D` hoặc `--use-device` : Thay vì hw_addr, đối số được đưa ra là tên của một giao diện. arp sẽ sử dụng địa chỉ MAC của giao diện đó cho mục nhập bảng. Đây thường là tùy chọn tốt nhất để thiết lập mục nhập ARP proxy cho chính bạn.
+- Tùy chọn:<br>
+    `-v` hoặc `--verbose` : Hiển thị rõ ràng cho người dùng biết chuyện gì đang xảy ra.<br>
+    `-n` hoặc `--numeric` : Hiển thị địa chỉ số thay vì cố gắng xác định tên máy chủ, cổng hoặc tên người dùng tượng trưng.<br>
+    `-D` hoặc `--use-device` : Thay vì hw_addr, đối số được đưa ra là tên của một giao diện. arp sẽ sử dụng địa chỉ MAC của giao diện đó cho mục nhập bảng. Đây thường là tùy chọn tốt nhất để thiết lập mục nhập ARP proxy cho chính bạn.<br>
     *Để biết thêm thông tin, vui lòng tham khảo tài liệu gốc.*
-- Ví dụ:
-    `arp -a` : Hiển thị tất cả các mục trong bảng ARP, bao gồm địa chỉ IP, địa chỉ MAC và trạng thái.
-    `arp -n` : Hiển thị bảng ARP mà không phân giải tên máy chủ, chỉ hiển thị địa chỉ IP và MAC.
-    `arp -d 192.168.1.1` : Xóa địa chỉ IP `192.168.1.1` khỏi bảng ARP.
-    `arp -i eth0 -Ds 10.0.0.2 eth1 pub` : Điều này sẽ trả lời các yêu cầu ARP cho `10.0.0.2` trên `eth0` với địa chỉ MAC cho `eth1`.
+- Ví dụ:<br>
+    `arp -a` : Hiển thị tất cả các mục trong bảng ARP, bao gồm địa chỉ IP, địa chỉ MAC và trạng thái.<br>
+    `arp -n` : Hiển thị bảng ARP mà không phân giải tên máy chủ, chỉ hiển thị địa chỉ IP và MAC.<br>
+    `arp -d 192.168.1.1` : Xóa địa chỉ IP `192.168.1.1` khỏi bảng ARP.<br>
+    `arp -i eth0 -Ds 10.0.0.2 eth1 pub` : Điều này sẽ trả lời các yêu cầu ARP cho `10.0.0.2` trên `eth0` với địa chỉ MAC cho `eth1`.<br>
     `/usr/sbin/arp -i eth1 -d 10.0.0.1` : Xóa mục nhập bảng ARP cho `10.0.0.1` trên giao diện `eth1`. Điều này sẽ khớp với các mục nhập ARP proxy đã xuất bản và các mục nhập cố định.
 
 ## route
