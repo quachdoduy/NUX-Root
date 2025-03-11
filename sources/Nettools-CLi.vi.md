@@ -138,6 +138,7 @@ Bộ công cụ **net-tools** là một tập hợp các lệnh quản lý mạn
 - Ví dụ:<br>
     `netstat -a` : Hiển thị tất cả các socket đang hoạt động (TCP/UDP), bao gồm cả các cổng đang lắng nghe (`LISTEN`).<br>
     `netstat -l` : Hiển thị danh sách các cổng mà hệ thống đang lắng nghe.<br>
-    `netstat -an | grep ":22"` : Kiểm tra kết nối trên cổng `22` (SSH).
+    `netstat -an | grep ":22"` : Kiểm tra kết nối trên cổng `22` (SSH).<br>
+    `netstat -utnpl` : Câu lệnh tôi thích nhất.
 
 *[Lên đầu trang](#nux-root--nettools-linux-cli)*
