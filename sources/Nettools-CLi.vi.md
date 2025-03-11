@@ -48,7 +48,7 @@ Bộ công cụ **net-tools** là một tập hợp các lệnh quản lý mạn
 # COMMONLY USED COMMANDS
 
 ## ifconfig
-- Tóm tắt:
+- Tóm tắt:<br>
     `ifconfig [-v] [-a] [-s] [interface]`<br>
     `ifconfig [-v] interface [aftype] options | address ...`
 - Miêu tả:
@@ -67,7 +67,7 @@ Bộ công cụ **net-tools** là một tập hợp các lệnh quản lý mạn
     `ifconfig eth0 down` : Vô hiệu hóa giao diện mạng.
 
 ## arp
-- Tóm tắt:
+- Tóm tắt:<br>
     `arp [-vn] [-H type] [-i if] [-ae] [hostname]`<br>
     `arp [-v] [-i if] -d hostname [pub]`<br>
     `arp [-v] [-H type] [-i if] -s hostname hw_addr [temp]`<br>
