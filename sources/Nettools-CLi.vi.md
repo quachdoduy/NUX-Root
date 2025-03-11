@@ -94,6 +94,23 @@ Bộ công cụ **net-tools** là một tập hợp các lệnh quản lý mạn
     `/usr/sbin/arp -i eth1 -d 10.0.0.1` : Xóa mục nhập bảng ARP cho `10.0.0.1` trên giao diện `eth1`. Điều này sẽ khớp với các mục nhập ARP proxy đã xuất bản và các mục nhập cố định.
 
 ## route
+- Tóm tắt:<br>
+    `route [-CFvnNee] [-A family |-4|-6]`
+- Miêu tả:
+    - **Route** thao tác các bảng định tuyến IP của hạt nhân. Công dụng chính của nó là thiết lập các tuyến tĩnh đến các máy chủ hoặc mạng cụ thể thông qua một giao diện sau khi đã được cấu hình bằng chương trình [ifconfig](#ifconfig)(8).
+    - Khi tùy chọn **add** hoặc **del** được sử dụng, **route** sẽ sửa đổi các bảng định tuyến. Nếu không có các tùy chọn này, **route** sẽ hiển thị nội dung hiện tại của các bảng định tuyến.
+- Tùy chọn:<br>
+    `-A family` : sử dụng họ địa chỉ được chỉ định (ví dụ `inet`). Sử dụng **route --help** để có danh sách đầy đủ. Bạn có thể sử dụng **-6** làm bí danh cho **--inet6** và **-4** làm bí danh cho **-A inet**.<br>
+    `-F` : hoạt động trên bảng định tuyến FIB (Cơ sở thông tin chuyển tiếp) của hạt nhân. Đây là mặc định.<br>
+    `-C` : hoạt động trên bộ đệm định tuyến của hạt nhân.<br>
+    `-n` : hiển thị địa chỉ số thay vì cố gắng xác định tên máy chủ tượng trưng. Điều này hữu ích nếu bạn đang cố gắng xác định lý do tại sao tuyến đường đến máy chủ tên của bạn đã biến mất.<br>
+    `del` : xóa một tuyến đường.<br>
+    `add` : thêm một tuyến đường mới.<br>
+    *Để biết thêm thông tin, vui lòng tham khảo tài liệu gốc.*
+- Ví dụ:<br>
+    `route add -net 127.0.0.0 netmask 255.0.0.0 dev lo` : thêm mục **loopback** bình thường, sử dụng netmask **255.0.0.0** và liên kết với thiết bị "**lo**".<br>
+    `route add -net 192.56.76.0 netmask 255.255.255.0 dev eth0` : thêm một tuyến đường đến mạng cục bộ **192.56.76.x** qua "**eth0**". Từ "**dev**" có thể được bỏ qua ở đây.<br>
+    `route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0` : Đây là một tài liệu mơ hồ để mọi người biết cách thực hiện. Điều này thiết lập tất cả các tuyến IP **class D (multicast)*** đi qua "**eth0**". Đây là dòng cấu hình bình thường chính xác với một hạt nhân đa hướng.
 
 ## netstat
 
