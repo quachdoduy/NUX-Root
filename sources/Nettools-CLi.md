@@ -1,4 +1,4 @@
-# NUX-Root / NettoolsN Linux CLi
+# NUX-Root / Nettools Linux CLi
 Notes on project implementation with Linux.
 
 [![Lang EN](https://img.shields.io/badge/lang-en-yellow)](Nettools-CLi.md)
