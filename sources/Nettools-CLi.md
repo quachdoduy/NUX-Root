@@ -130,6 +130,14 @@ The **net-tools** toolkit is a collection of network management commands on Unix
         `-i` or `--interfaces` : Display a table of all network interfaces.<br>
         `-M` or `--masquerade` : Display a list of masqueraded connections.<br>
         `-s` or `--statistics` : Display summary statistics for each protocol.
-
+- Options:<br>
+    `-v` or `--verbose` : Tell the user what is going on by being verbose. Especially print some useful information about unconfigured address families.<br>
+    `-W` or `--wide` : Do not truncate IP addresses by using output as wide as needed. This is optional for now to not break existing scripts.<br>
+    `-n` or `--numeric` : Show numerical addresses instead of trying to determine symbolic host, port or user names.<br>
+    *For more, please refer to the original document.*
+- Examples:<br>
+    `netstat -a` : Displays all active sockets (TCP/UDP), including listening ports (`LISTEN`).<br>
+    `netstat -l` : Displays a list of ports that the system is listening on.<br>
+    `netstat -an | grep ":22"` : Check connections on port `22` (SSH).
 
 *[Back to Top](#nux-root--nettoolsn-linux-cli)*
