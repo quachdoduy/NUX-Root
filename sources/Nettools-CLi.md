@@ -49,7 +49,7 @@ The **net-tools** toolkit is a collection of network management commands on Unix
 
 ## ifconfig
 - Synopsis:
-    `ifconfig [-v] [-a] [-s] [interface]`
+    `ifconfig [-v] [-a] [-s] [interface]`<br>
     `ifconfig [-v] interface [aftype] options | address ...`
 - Description:
     - Ifconfig is used to configure the kernel-resident network interfaces. It is used at boot time to set up interfaces as necessary. After that, it is usually only needed when debugging or when system tuning is needed.
@@ -68,11 +68,11 @@ The **net-tools** toolkit is a collection of network management commands on Unix
 
 ## arp
 - Synopsis:
-    `arp [-vn] [-H type] [-i if] [-ae] [hostname]`
-    `arp [-v] [-i if] -d hostname [pub]`
-    `arp [-v] [-H type] [-i if] -s hostname hw_addr [temp]`
-    `arp [-v] [-H type] [-i if] -s hostname hw_addr [netmask nm] pub`
-    `arp [-v] [-H type] [-i if] -Ds hostname ifname [netmask nm] pub`
+    `arp [-vn] [-H type] [-i if] [-ae] [hostname]`<br>
+    `arp [-v] [-i if] -d hostname [pub]`<br>
+    `arp [-v] [-H type] [-i if] -s hostname hw_addr [temp]`<br>
+    `arp [-v] [-H type] [-i if] -s hostname hw_addr [netmask nm] pub`<br>
+    `arp [-v] [-H type] [-i if] -Ds hostname ifname [netmask nm] pub`<br>
     `arp [-vnD] [-H type] [-i if] -f [filename]`
 - Description:
     - Arp manipulates or displays the kernel's IPv4 network neighbour cache. It can add entries to the table, delete one or display the current content.
