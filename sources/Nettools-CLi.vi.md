@@ -75,23 +75,23 @@ Bộ công cụ **net-tools** là một tập hợp các lệnh quản lý mạn
     `arp [-v] [-H type] [-i if] -Ds hostname ifname [netmask nm] pub`
     `arp [-vnD] [-H type] [-i if] -f [filename]`
 - Miêu tả:
-    - Arp manipulates or displays the kernel's IPv4 network neighbour cache. It can add entries to the table, delete one or display the current content.
-    - ARP stands for Address Resolution Protocol, which is used to find the media access control address of a network neighbour for a given IPv4 Address.
+    - Arp thao tác hoặc hiển thị bộ nhớ đệm mạng lân cận IPv4 của hạt nhân. Nó có thể thêm mục vào bảng, xóa một mục hoặc hiển thị nội dung hiện tại.
+    - ARP là viết tắt của Address Resolution Protocol, được sử dụng để tìm địa chỉ kiểm soát truy cập phương tiện của mạng lân cận cho một Địa chỉ IPv4 nhất định.
 - Chế độ:
-    - **arp** with no mode specifier will print the current content of the table. It is possible to limit the number of entries printed, by specifying an hardware address type, interface name or host address.
-    - **arp -d** *address* will delete a ARP table entry. Root or netadmin privilege is required to do this. The entry is found by IP address. If a hostname is given, it will be resolved before looking up the entry in the ARP table.
-    - **arp -s** *address hw_addr* is used to set up a new table entry. The format of the hw_addr parameter is dependent on the hardware class, but for most classes one can assume that the usual presentation can be used. For the Ethernet class, this is 6 bytes in hexadecimal, separated by colons. When adding proxy arp entries (that is those with the publish flag set) a netmask may be specified to proxy arp for entire subnets. This is not good practice, but is supported by older kernels because it can be useful. If the temp flag is not supplied entries will be permanent stored into the ARP cache. To simplify setting up entries for one of your own network interfaces, you can use the arp -Ds address ifname form. In that case the hardware address is taken from the interface with the specified name.
+    - **arp** không có chỉ định chế độ sẽ in nội dung hiện tại của bảng. Có thể giới hạn số mục được in bằng cách chỉ định loại địa chỉ phần cứng, tên giao diện hoặc địa chỉ máy chủ.
+    - **arp -d** *address* sẽ xóa 1 mục trong bảng ARP. Cần có quyền root hoặc netadmin để thực hiện việc này. Mục được tìm thấy theo địa chỉ IP. Nếu tên máy chủ được cung cấp, nó sẽ được giải quyết trước khi tra cứu mục trong bảng ARP.
+    - **arp -s** *address hw_addr* được sử dụng để thiết lập một mục bảng mới. Định dạng của tham số hw_addr phụ thuộc vào lớp phần cứng, nhưng đối với hầu hết các lớp, người ta có thể cho rằng có thể sử dụng cách trình bày thông thường. Đối với lớp Ethernet, đây là 6 byte ở dạng thập lục phân, được phân tách bằng dấu hai chấm. Khi thêm các mục proxy arp (tức là các mục có cờ publish được đặt), có thể chỉ định một netmask cho proxy arp cho toàn bộ các mạng con. Đây không phải là cách làm tốt, nhưng được các kernel cũ hơn hỗ trợ vì nó có thể hữu ích. Nếu cờ temp không được cung cấp, các mục sẽ được lưu trữ cố định vào bộ đệm ARP. Để đơn giản hóa việc thiết lập các mục cho một trong các giao diện mạng của riêng bạn, bạn có thể sử dụng biểu mẫu arp -Ds address ifname. Trong trường hợp đó, địa chỉ phần cứng được lấy từ giao diện có tên đã chỉ định.
 - Tùy chọn:
-    `-v` or `--verbose` : Tell the user what is going on by being verbose.
-    `-n` or `--numeric` : Shows numerical addresses instead of trying to determine symbolic host, port or user names.
-    `-D` or `--use-device` : Instead of a hw_addr, the given argument is the name of an interface. arp will use the MAC address of that interface for the table entry. This is usually the best option to set up a proxy ARP entry to yourself.
-    *For more, please refer to the original document.*
+    `-v` hoặc `--verbose` : Hiển thị rõ ràng cho người dùng biết chuyện gì đang xảy ra.
+    `-n` hoặc `--numeric` : Hiển thị địa chỉ số thay vì cố gắng xác định tên máy chủ, cổng hoặc tên người dùng tượng trưng.
+    `-D` hoặc `--use-device` : Thay vì hw_addr, đối số được đưa ra là tên của một giao diện. arp sẽ sử dụng địa chỉ MAC của giao diện đó cho mục nhập bảng. Đây thường là tùy chọn tốt nhất để thiết lập mục nhập ARP proxy cho chính bạn.
+    *Để biết thêm thông tin, vui lòng tham khảo tài liệu gốc.*
 - Ví dụ:
-    `arp -a` : Displays all entries in the ARP table, including IP address, MAC address, and status.
-    `arp -n` : Show ARP table without host name resolution, only show IP and MAC addresses.
-    `arp -d 192.168.1.1` : Remove IP address 192.168.1.1 from the ARP table.
-    `arp -i eth0 -Ds 10.0.0.2 eth1 pub` : This will answer ARP requests for 10.0.0.2 on eth0 with the MAC address for eth1. 
-    `/usr/sbin/arp -i eth1 -d 10.0.0.1` : Delete the ARP table entry for 10.0.0.1 on interface eth1. This will match published proxy ARP entries and permanent entries.
+    `arp -a` : Hiển thị tất cả các mục trong bảng ARP, bao gồm địa chỉ IP, địa chỉ MAC và trạng thái.
+    `arp -n` : Hiển thị bảng ARP mà không phân giải tên máy chủ, chỉ hiển thị địa chỉ IP và MAC.
+    `arp -d 192.168.1.1` : Xóa địa chỉ IP `192.168.1.1` khỏi bảng ARP.
+    `arp -i eth0 -Ds 10.0.0.2 eth1 pub` : Điều này sẽ trả lời các yêu cầu ARP cho `10.0.0.2` trên `eth0` với địa chỉ MAC cho `eth1`.
+    `/usr/sbin/arp -i eth1 -d 10.0.0.1` : Xóa mục nhập bảng ARP cho `10.0.0.1` trên giao diện `eth1`. Điều này sẽ khớp với các mục nhập ARP proxy đã xuất bản và các mục nhập cố định.
 
 ## route
 
