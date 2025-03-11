@@ -113,5 +113,22 @@ The **net-tools** toolkit is a collection of network management commands on Unix
     `route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0` : This is an obscure one documented so people know how to do it. This sets all of the **class D (multicast)** IP routes to go via "**eth0**". This is the correct normal configuration line with a multicasting kernel.
 
 ## netstat
+- Notes:
+    *This program is obsolete.*
+    - Replacement for **netstat** is **ss**.
+    - Replacement for **netstat -r** is **ip route**.
+    - Replacement for **netstat -i** is **ip -s link**.
+    - Replacement for **netstat -g** is **ip maddr**.
+- Synopsis:<br>
+    `netstat [*address_family_options*] [--tcp|-t] [--udp|-u] [--udplite|-U] [--raw|-w] [--listening|-l] [--all|-a] [--numeric|-n] [--numeric-hosts] [--numeric-ports] [--numeric-users] [--symbolic|-N] [--extend|-e[--extend|-e]] [--timers|-o] [--program|-p] [--verbose|-v] [--continuous|-c] [--wide|-W] netstat {--route|-r} [address_family_options] [--extend|-e[--extend|-e]] [--verbose|-v] [--numeric|-n] [--numeric-hosts] [--numeric-ports] [--numeric-users] [--continuous|-c] netstat {--interfaces|-i} [--all|-a] [--extend|-e[--extend|-e]] [--verbose|-v] [--program|-p] [--numeric|-n] [--numeric-hosts] [--numeric-ports] [--numeric-users] [--continuous|-c] netstat {--groups|-g} [--numeric|-n] [--numeric-hosts] [--numeric-ports] [--numeric-users] [--continuous|-c] netstat {--masquerade|-M} [--extend|-e] [--numeric|-n] [--numeric-hosts] [--numeric-ports] [--numeric-users] [--continuous|-c] netstat {--statistics|-s} [--tcp|-t] [--udp|-u] [--udplite|-U] [--raw|-w] netstat {--version|-V} netstat {--help|-h} *address_family_options*:`<br>
+    `[-4|--inet] [-6|--inet6] [--protocol={inet,inet6,unix,ipx,ax25,netrom,ddp, ... } ] [--unix|-x] [--inet|--ip|--tcpip] [--ax25] [--x25] [--rose] [--ash] [--ipx] [--netrom] [--ddp|--appletalk] [--econet|--ec]`
+- Description:
+    - **Netstat** prints information about the Linux networking subsystem.
+    - The type of information printed is controlled by the first argument, as follows:
+        `-r` or `--route` : Display the kernel routing tables.
+        `-g` or `--groups` : Display multicast group membership information for IPv4 and IPv6.
+        `-i` or `--interfaces` : Display a table of all network interfaces.
+        `-M` or `--masquerade` : Display a list of masqueraded connections.
+        `-s` or `--statistics` : Display summary statistics for each protocol.
 
 *[Back to Top](#nux-root--nettoolsn-linux-cli)*
