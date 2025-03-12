@@ -15,7 +15,7 @@ Ghi chú về việc triển khai dự án với Linux.
 - [Cơ bản](https://github.com/quachdoduy/NUX-Root/blob/main/sources/Gen-Nux-CLi.vi.md)
 - Tools for Linux
     - [Net-Tools](sources/Nettools-CLi.vi.md)
-    - [IPRoute2](https://wiki.linuxfoundation.org/networking/iproute2)
+    - [IPRoute2](sources/Iproute2-CLi.vi.md)
     - [MTR](https://www.bitwizard.nl/mtr/)
 - System
     - [Keep Alived](https://www.keepalived.org/)
