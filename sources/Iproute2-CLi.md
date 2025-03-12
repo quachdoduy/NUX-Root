@@ -28,5 +28,6 @@ Notes on project implementation with Linux.
 | Years | Event                                                                              |
 |-------|------------------------------------------------------------------------------------|
 | 1999  | iproute2 was born, gradually replacing net-tools. Supports IPv4, advanced routing. |
+| 2002  | Linux Kernel 2.4 improves many networking features, iproute2 continues to be expanded. |
 
 *[Back to Top](#nux-root--iproute2-linux-cli)*
