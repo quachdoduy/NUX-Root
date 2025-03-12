@@ -98,6 +98,9 @@ Notes on project implementation with Linux.
     - `ip addr add 192.168.2.100/24 dev eth0 label eth0:1` : Add IP alias on eth0:1.
 
 ## ip route
+- Synopsis:
+    - `ip route { add | del | change | append | replace } ROUTE`
+        * `ROUTE := NODE_SPEC [ INFO_SPEC ]`
 
 ## ip rule
 
