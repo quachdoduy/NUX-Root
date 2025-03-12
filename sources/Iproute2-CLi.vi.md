@@ -10,7 +10,18 @@ Notes on project implementation with Linux.
 [![donate with buymeacoffe](https://img.shields.io/badge/Like_it%3F-Donate!-blue?logo=githubsponsors&logoColor=orange&style=flat)](https://buymeacoffee.com/quachdoduy)
 
 # TABLE OF CONTENTS
-
+- [TABLE OF CONTENTS](#table-of-contents)
+- [PREFACE](#preface)
+    - [Tại sao lại là iproute2?](#tại-sao-lại-là-iproute2)
+    - [Lịch sử](#lịch-sử)
+    - [Các công nghệ quan trọng mà iproute2 hỗ trợ](#các-công-nghệ-quan-trọng-mà-iproute2-hỗ-trợ)
+- [COMMONLY USED COMMANDS](#commonly-used-commands)
+    - [ip link](#ip-link)
+    - [ip addr](#ip-addr)
+    - [ip route](#ip-route)
+    - [ip rule](#ip-rule)
+    - [ip neigh](#ip-neigh)
+    - [ip monitor](#ip-monitor)
 
 # PREFACE
 **iproute2** là công cụ hiện đại, thay thế hoàn toàn **net-tools** với nhiều cải tiến về hiệu suất, bảo mật và hỗ trợ IPv6. Nếu bạn đã quen với **net-tools**, việc chuyển sang **iproute2** sẽ giúp bạn quản lý hệ thống mạng Linux hiệu quả hơn.
@@ -32,7 +43,7 @@ Notes on project implementation with Linux.
 | 2003-2005 | Hỗ trợ mạnh hơn cho IPv6, **`iproute2` trở thành công cụ mặc định trên các bản phân phối Linux mới.** |
 | 2007-2010 | Linux Kernel 2.6 ra mắt với cải tiến lớn về networking, `iproute2` tiếp tục phát triển để hỗ trợ Netlink API. |
 | 2015-2018 | `iproute2` iproute2 được cập nhật để hỗ trợ `network namespaces`, `container networking` (*dành cho Docker, Kubernetes*). |
-| 2020 - now | Tiếp tục phát triển, hỗ trợ XDP, eBPF, Traffic Control (QoS) và các công nghệ mới trong Linux Kernel. |
+| 2020 - nay | Tiếp tục phát triển, hỗ trợ XDP, eBPF, Traffic Control (QoS) và các công nghệ mới trong Linux Kernel. |
 
 ## Các công nghệ quan trọng mà iproute2 hỗ trợ
 1. **IPv6** – Hỗ trợ đầy đủ, trong khi `net-tools` chỉ có hỗ trợ hạn chế.
@@ -98,6 +109,8 @@ Notes on project implementation with Linux.
     - `ip addr add 192.168.2.100/24 dev eth0 label eth0:1` : Thêm IP alias trên eth0:1.
 
 ## ip route
+- Description:
+    - Lệnh `ip route` được sử dụng để quản lý bảng định tuyến trong Linux. Nó cho phép hiển thị, thêm, xóa và thay đổi các tuyến đường (routes) trong hệ thống mạng.
 - Usage:
     - `ip route { list | flush } SELECTOR`
     - `ip route save SELECTOR`
@@ -135,9 +148,21 @@ Notes on project implementation with Linux.
     - IOAM6HDR := trace prealloc type IOAM6_TRACE_TYPE ns IOAM6_NAMESPACE size IOAM6_TRACE_SIZE
     - XFRMINFO := if_id IF_ID [ link_dev LINK ]
     - ROUTE_GET_FLAGS := [ fibmatch ]
-- Description:
-
 - Examples:
+    - `ip route show` : Liệt kê tất cả các tuyến đường đang hoạt động.
+    - `ip -brief route show` : Liệt kê bảng định tuyến ở dạng ngắn gọn.
+    - `ip route show table main` : Liệt kê tuyến đường theo bảng định tuyến cụ thể (main).
+    - `ip route get 8.8.8.8` : Liệt kê tuyến đường theo địa chỉ IP đích.
+    - `ip route add 192.168.2.0/24 via 192.168.1.1` : Thêm tuyến đường đến mạng con `192.168.2.0/24` qua `gateway 192.168.1.1`.
+    - `ip route add default via 192.168.1.1` : Thêm tuyến đường mặc định (default) qua `gateway 192.168.1.1`.
+    - `ip route add 192.168.3.0/24 dev eth0` : Thêm tuyến đường chỉ áp dụng cho một giao diện mạng cụ thể (eth0).
+    - `ip route del 192.168.2.0/24` : Xóa tuyến đường đến mạng `192.168.2.0/24`.
+    - `ip route del default` : Xóa tuyến đường mặc định (default).
+    - `ip route replace 192.168.2.0/24 via 192.168.1.254` : Thay thế tuyến đường đến `192.168.2.0/24` qua một gateway mới `192.168.1.254`.
+    - `ip route add default nexthop via 192.168.1.1 dev eth0 nexthop via 192.168.1.2 dev eth1` : Thiết lập hai tuyến đường cân bằng tải (Load Balancing) với trọng số bằng nhau.
+    - `ip route add default via 192.168.1.1 metric 100` : Thiết lập tuyến đường mặc định với metric ưu tiên thấp hơn (*ưu tiên cao hơn có số metrics nhỏ hơn*).
+    - `ip route get 8.8.8.8` : Kiểm tra tuyến đường gói tin sẽ đi đến IP `8.8.8.8`.
+    - `ip route get 8.8.8.8 from 192.168.1.100` : Kiểm tra tuyến đường đến địa chỉ cụ thể `8.8.8.8` từ một địa chỉ nguồn cụ thể `192.168.1.100`.
 
 ## ip rule
 
