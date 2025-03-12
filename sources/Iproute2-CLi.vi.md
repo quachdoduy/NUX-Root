@@ -65,16 +65,37 @@ Notes on project implementation with Linux.
     `delete` : xóa giao diện mạng.<br>
     `set` : thiết lập giao diện mạng.<br>
     *Để biết thêm thông tin, vui lòng tham khảo tài liệu gốc.*
-- Examples:<br>
+- Examples:
     - `ip link show` : Xem danh sách giao diện mạng.
     - `ip link show dev eth0` : Liệt kê một giao diện cụ thể.
-    - `ip -brief link show` : Hiển thị thông tin dưới dạng ngắn gọn
+    - `ip -brief link show` : Hiển thị thông tin dưới dạng ngắn gọn.
     - `ip link set eth0 up` : Bật (enable) giao diện mạng eth0.
     - `ip link set eth0 down` : Tắt (disable) giao diện mạng eth0.
     - `ip link set eth0 name wan0` : Đổi tên giao diện mạng eth0 thành wan0.
     - `ip link set eth0 down && ip link set eth0 up` : Khởi động lại giao diện mạng.
 
 ## ip addr
+- Synopsis:<br>
+    `ip addr [help | show | add | del | change | replace | flush]`<br>
+    *Chú ý: câu lệnh đầy đủ là `ip address` nhưng có thể viết tắt là `ip addr`.*
+- Description:
+    - Lệnh `ip addr` trong `iproute2` được sử dụng để quản lý địa chỉ IP trên các giao diện mạng trong Linux. Nó có thể hiển thị, thêm, xóa và thay đổi địa chỉ IP, cũng như cấu hình các tham số liên quan như broadcast, netmask, và scope.
+- Parameter:<br>
+    `help` : hiển thị trợ giúp.<br>
+    `show` : hiển thị địa chỉ IP trên hệ thống.<br>
+    `add` : thêm địa chỉ IP vào giao diện mạng.<br>
+    `del` : xóa địa chỉ IP khỏi giao diện.<br>
+    *Để biết thêm thông tin, vui lòng tham khảo tài liệu gốc.*
+- Examples:
+    - `ip addr show` : Liệt kê tất cả các địa chỉ IP trên tất cả các giao diện.
+    - `ip addr show dev eth0` :  Liệt kê địa chỉ IP của một giao diện cụ thể (eth0).
+    - `ip -brief addr show` : Hiển thị địa chỉ IP dưới dạng ngắn gọn.
+    - `ip addr add 192.168.1.100/24 dev eth0` : Thêm địa chỉ IPv4 vào giao diện eth0.
+    - `ip addr add 192.168.1.100/24 brd 192.168.1.255 dev eth0` : Thêm địa chỉ IP với broadcast cụ thể.
+    - `ip addr del 192.168.1.100/24 dev eth0` : Xóa địa chỉ IPv4 khỏi eth0.
+    - `ip addr flush dev eth0` : Xóa toàn bộ địa chỉ IP trên eth0.
+    - `ip addr show | grep dynamic` : Xem địa chỉ được cấp bởi DHCP.
+    - `ip addr add 192.168.2.100/24 dev eth0 label eth0:1` : Thêm IP alias trên eth0:1.
 
 ## ip route
 
