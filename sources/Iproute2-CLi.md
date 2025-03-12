@@ -25,9 +25,13 @@ Notes on project implementation with Linux.
 ## History
 - In the late 1990s, Alexey Kuznetsov, a Linux kernel developer, created iproute2 to replace net-tools. This tool was designed to work with Linux Kernel 2.2 and above, providing better support for new networking features.
 
-| Years | Event                                                                              |
+| Years | Event |
 |-------|------------------------------------------------------------------------------------|
 | 1999  | iproute2 was born, gradually replacing net-tools. Supports IPv4, advanced routing. |
 | 2002  | Linux Kernel 2.4 improves many networking features, iproute2 continues to be expanded. |
+| 2003-2005 | Stronger support for IPv6, iproute2 becomes the default tool on new Linux distributions. |
+| 2007-2010 | Linux Kernel 2.6 is released with major networking improvements, iproute2 continues to evolve to support Netlink API. |
+| 2015-2018 | iproute2 updated to support network namespaces, container networking (for Docker, Kubernetes). |
+| 2020 - now | Continued development, support for XDP, eBPF, Traffic Control (QoS) and new technologies in the Linux Kernel. |
 
 *[Back to Top](#nux-root--iproute2-linux-cli)*
