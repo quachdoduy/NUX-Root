@@ -15,7 +15,7 @@ Notes on project implementation with Linux.
 # PREFACE
 **iproute2** is a modern, complete replacement for **net-tools** with many improvements in performance, security and IPv6 support. If you are familiar with **net-tools**, switching to **iproute2** will help you manage your Linux network more effectively.
 
-## Why iproute2 ?
+## Why iproute2?
 - Most Linux distributions, and most UNIX's, currently use the venerable `arp`, `ifconfig` and `route` commands. While these tools work, they show some unexpected behaviour under Linux 2.2 and up. For example, GRE tunnels are an integral part of routing these days, but require completely different tools.
 - With iproute2, tunnels are an integral part of the tool set.
 - The 2.2 and above Linux kernels include a completely redesigned network subsystem. This new networking code brings Linux performance and a feature set with little competition in the general OS arena. In fact, the new routing, filtering, and classifying code is more featureful than the one provided by many dedicated routers and firewalls and traffic shaping products.
@@ -23,15 +23,44 @@ Notes on project implementation with Linux.
 - This new framework makes it possible to clearly express features previously beyond Linux's reach.
 
 ## History
-- In the late 1990s, Alexey Kuznetsov, a Linux kernel developer, created iproute2 to replace net-tools. This tool was designed to work with Linux Kernel 2.2 and above, providing better support for new networking features.
+- In the late 1990s, **Alexey Kuznetsov**, a Linux kernel developer, created `iproute2` to replace `net-tools`. This tool was designed to work with Linux Kernel 2.2 and above, providing better support for new networking features.
 
 | Years | Event |
 |-------|------------------------------------------------------------------------------------|
-| 1999  | iproute2 was born, gradually replacing net-tools. Supports IPv4, advanced routing. |
+| 1999  | `iproute2` was born, gradually replacing `net-tools`. Supports IPv4, advanced routing. |
 | 2002  | Linux Kernel 2.4 improves many networking features, iproute2 continues to be expanded. |
-| 2003-2005 | Stronger support for IPv6, iproute2 becomes the default tool on new Linux distributions. |
-| 2007-2010 | Linux Kernel 2.6 is released with major networking improvements, iproute2 continues to evolve to support Netlink API. |
-| 2015-2018 | iproute2 updated to support network namespaces, container networking (for Docker, Kubernetes). |
+| 2003-2005 | Stronger support for IPv6, **`iproute2` becomes the default tool on new Linux distributions.** |
+| 2007-2010 | Linux Kernel 2.6 is released with major networking improvements, `iproute2` continues to evolve to support Netlink API. |
+| 2015-2018 | `iproute2` updated to support `network namespaces`, `container networking` (*for Docker, Kubernetes*). |
 | 2020 - now | Continued development, support for XDP, eBPF, Traffic Control (QoS) and new technologies in the Linux Kernel. |
+
+## Key Technologies Supported by iproute2
+1. **IPv6** – Full support, while `net-tools` has only limited support.
+2. **Netlink API** – Communicates directly with the Kernel, making the ip command faster than `ifconfig`.
+3. **Policy-Based Routing** – Policy based routing (ip rule), supports multiple routing tables (ip route).
+4. **Traffic Control (QoS)** – Bandwidth control and queue management (`tc`).
+5. **Network Namespace** – Supports container networking (Docker, Kubernetes).
+
+## Refer to original document
+- **iproute2 source code on kernel.org**: https://www.kernel.org/pub/linux/utils/net/iproute2/
+- **Official Git Repository**:  https://git.kernel.org/pub/scm/network/iproute2/iproute2.git
+- **iproute2 manual (man pages)**: https://man7.org/linux/man-pages/man8/
+- **Linux Foundation Networking Guide**: https://wiki.linuxfoundation.org/networking/iproute2
+- **Arch Linux Wiki on iproute2 (very detailed)**: https://wiki.archlinux.org/title/Iproute2
+- **Debian Wiki about iproute2**: https://wiki.debian.org/IPRoute2
+
+# COMMONLY USED COMMANDS
+
+## ip link
+
+## ip addr
+
+## ip route
+
+## ip rule
+
+## ip neigh
+
+## ip monitor
 
 *[Back to Top](#nux-root--iproute2-linux-cli)*
