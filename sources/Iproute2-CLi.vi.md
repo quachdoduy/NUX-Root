@@ -51,7 +51,28 @@ Notes on project implementation with Linux.
 
 # COMMONLY USED COMMANDS
 
+![Overview](../assets/images/IPRoute2.png "Overview")
+
 ## ip link
+- Synopsis:<br>
+    `ip link [help | show | add | delete | set]`<br>
+- Description:
+    - Lệnh `ip link` trong `iproute2` được sử dụng để quản lý giao diện mạng. Nó cho phép hiển thị thông tin, bật/tắt, đổi tên, cấu hình MTU và thay đổi địa chỉ MAC của card mạng.
+- Parameter:<br>
+    `help` : hiển thị trợ giúp.<br>
+    `show` : liệt kê tất cả các giao diện mạng.<br>
+    `add` : thêm giao diện mạng.<br>
+    `delete` : xóa giao diện mạng.<br>
+    `set` : thiết lập giao diện mạng.<br>
+    *Để biết thêm thông tin, vui lòng tham khảo tài liệu gốc.*
+- Examples:<br>
+    - `ip link show` : Xem danh sách giao diện mạng.
+    - `ip link show dev eth0` : Liệt kê một giao diện cụ thể.
+    - `ip -brief link show` : Hiển thị thông tin dưới dạng ngắn gọn
+    - `ip link set eth0 up` : Bật (enable) giao diện mạng eth0.
+    - `ip link set eth0 down` : Tắt (disable) giao diện mạng eth0.
+    - `ip link set eth0 name wan0` : Đổi tên giao diện mạng eth0 thành wan0.
+    - `ip link set eth0 down && ip link set eth0 up` : Khởi động lại giao diện mạng.
 
 ## ip addr
 
