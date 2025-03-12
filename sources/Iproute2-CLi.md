@@ -99,9 +99,11 @@ Notes on project implementation with Linux.
 
 ## ip route
 - Synopsis:
-    - `ip route { add | del | change | append | replace } **ROUTE**`
+    - `ip route { add | del | change | append | replace } ROUTE`
         * `ROUTE := NODE_SPEC [ INFO_SPEC ]`
     - `ip route { list | flush } SELECTOR`
+    - `ip route save SELECTOR`
+        * `SELECTOR := [ root PREFIX ] [ match PREFIX ] [ exact PREFIX ] [ table TABLE_ID ] [ vrf NAME ] [ proto RTPROTO ] [ type TYPE ] [ scope SCOPE ]`
 
 ## ip rule
 
