@@ -10,7 +10,18 @@ Notes on project implementation with Linux.
 [![donate with buymeacoffe](https://img.shields.io/badge/Like_it%3F-Donate!-blue?logo=githubsponsors&logoColor=orange&style=flat)](https://buymeacoffee.com/quachdoduy)
 
 # TABLE OF CONTENTS
-
+- [TABLE OF CONTENTS](#table-of-contents)
+- [PREFACE](#preface)
+    - [Why iproute2?](#why-iproute2)
+    - [History](#history)
+    - [Key Technologies Supported by iproute2](#key-technologies-supported-by-iproute2)
+- [COMMONLY USED COMMANDS](#commonly-used-commands)
+    - [ip link](#ip-link)
+    - [ip addr](#ip-addr)
+    - [ip route](#ip-route)
+    - [ip rule](#ip-rule)
+    - [ip neigh](#ip-neigh)
+    - [ip monitor](#ip-monitor)
 
 # PREFACE
 **iproute2** is a modern, complete replacement for **net-tools** with many improvements in performance, security and IPv6 support. If you are familiar with **net-tools**, switching to **iproute2** will help you manage your Linux network more effectively.
@@ -98,6 +109,8 @@ Notes on project implementation with Linux.
     - `ip addr add 192.168.2.100/24 dev eth0 label eth0:1` : Add IP alias on eth0:1.
 
 ## ip route
+- Description:
+    - The `ip route` command is used to manage the routing table in Linux. It allows displaying, adding, deleting and changing routes in the network system.
 - Usage:
     - `ip route { list | flush } SELECTOR`
     - `ip route save SELECTOR`
@@ -135,9 +148,21 @@ Notes on project implementation with Linux.
     - IOAM6HDR := trace prealloc type IOAM6_TRACE_TYPE ns IOAM6_NAMESPACE size IOAM6_TRACE_SIZE
     - XFRMINFO := if_id IF_ID [ link_dev LINK ]
     - ROUTE_GET_FLAGS := [ fibmatch ]
-- Description:
-
 - Examples:
+    - `ip route show` : List all active routes.
+    - `ip -brief route show` : List the routing table in a concise form.
+    - `ip route show table main` : List routes according to a specific routing table (main).
+    - `ip route get 8.8.8.8` : List routes by destination IP address.
+    - `ip route add 192.168.2.0/24 via 192.168.1.1` : Add route to subnet `192.168.2.0/24` via `gateway 192.168.1.1`.
+    - `ip route add default via 192.168.1.1` : Add default route via `gateway 192.168.1.1`.
+    - `ip route add 192.168.3.0/24 dev eth0` : Add a route that applies only to a specific network interface (eth0).
+    - `ip route del 192.168.2.0/24` : Remove route to network `192.168.2.0/24`.
+    - `ip route del default` : Delete default route.
+    - `ip route replace 192.168.2.0/24 via 192.168.1.254` : Replace the route to `192.168.2.0/24` through a new gateway `192.168.1.254`.
+    - `ip route add default nexthop via 192.168.1.1 dev eth0 nexthop via 192.168.1.2 dev eth1` : Set up two load balancing routes with equal weights.
+    - `ip route add default via 192.168.1.1 metric 100` : Set default route with lower priority metrics (*higher priority has smaller number of metrics*).
+    - `ip route get 8.8.8.8` : Check the packet route that will go to IP `8.8.8.8`.
+    - `ip route get 8.8.8.8 from 192.168.1.100` : Test the route to the specific address `8.8.8.8` from a specific source address `192.168.1.100`.
 
 ## ip rule
 
