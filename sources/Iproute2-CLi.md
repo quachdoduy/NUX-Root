@@ -65,7 +65,7 @@ Notes on project implementation with Linux.
     `delete` : delete network interface.<br>
     `set` : set network interface.<br>
     *For more, please refer to the original document.*
-- Examples:<br>
+- Examples:
     - `ip link show` : View list of network interfaces.
     - `ip link show dev eth0` : List a specific interface.
     - `ip -brief link show` : Display information in a concise form.
@@ -75,6 +75,27 @@ Notes on project implementation with Linux.
     - `ip link set eth0 down && ip link set eth0 up` : Restart network interface.
 
 ## ip addr
+- Synopsis:<br>
+    `ip addr [help | show | add | del | change | replace | flush]`<br>
+    *Note: the full command is `ip address` but can be abbreviated as `ip addr`.*
+- Description:
+    - The `ip addr` command in `iproute2` is used to manage IP addresses on network interfaces in Linux. It can display, add, delete, and change IP addresses, as well as configure related parameters such as broadcast, netmask, and scope.
+- Parameter:<br>
+    `help` : show help.<br>
+    `show` : list all ip network.<br>
+    `add` : add ip network.<br>
+    `del` : delere ip network.<br>
+    *For more, please refer to the original document.*
+- Examples:
+    - `ip addr show` : List all IP addresses on all interfaces.
+    - `ip addr show dev eth0` :  List the IP address of a specific interface (eth0).
+    - `ip -brief addr show` : Displays IP address in short form.
+    - `ip addr add 192.168.1.100/24 dev eth0` : Add IPv4 address to interface eth0.
+    - `ip addr add 192.168.1.100/24 brd 192.168.1.255 dev eth0` : Add IP address with specific broadcast.
+    - `ip addr del 192.168.1.100/24 dev eth0` : Remove IPv4 address from eth0.
+    - `ip addr flush dev eth0` : Delete all IP addresses on eth0.
+    - `ip addr show | grep dynamic` : View address assigned by DHCP.
+    - `ip addr add 192.168.2.100/24 dev eth0 label eth0:1` : Add IP alias on eth0:1.
 
 ## ip route
 
