@@ -54,6 +54,25 @@ Notes on project implementation with Linux.
 ![Overview](../assets/images/IPRoute2.png "Overview")
 
 ## ip link
+- Synopsis:<br>
+    `ip link [help | show | add | delete | set]`<br>
+- Description:
+    - The `ip link` command in `iproute2` is used to manage network interfaces. It allows displaying information, enabling/disabling, renaming, configuring MTU, and changing the MAC address of the network card.
+- Parameter:<br>
+    `help` : show help.<br>
+    `show` : list all network interfaces.<br>
+    `add` : add network interface.<br>
+    `delete` : delete network interface.<br>
+    `set` : set network interface.<br>
+    *For more, please refer to the original document.*
+- Examples:<br>
+    - `ip link show` : View list of network interfaces.
+    - `ip link show dev eth0` : List a specific interface.
+    - `ip -brief link show` : Display information in a concise form.
+    - `ip link set eth0 up` : Enable network interface eth0.
+    - `ip link set eth0 down` : Disable the eth0 network interface.
+    - `ip link set eth0 name wan0` : Rename network interface eth0 to wan0.
+    - `ip link set eth0 down && ip link set eth0 up` : Restart network interface.
 
 ## ip addr
 
