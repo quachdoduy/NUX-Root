@@ -22,5 +22,4 @@ Notes on project implementation with Linux.
     - [NTP Server]()
     - [DHCP Server]()
 
-
 *[Back to Top](#nux-root)*
