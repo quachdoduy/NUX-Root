@@ -17,6 +17,8 @@ Ghi chú về việc triển khai dự án với Linux.
 - [INSTALL TOOLS](#install-tools)
 - [UPDATE NEW PACKAGE](#update-new-package)
 
+---
+
 # ENABLE ROOT USER
 >Hệ thống máy chủ Ubuntu mặc định không kích hoạt tài khoản root sau khi cài đặt thành công. Do đó ta kích hoạt tài khoản root như dưới đây.
 
