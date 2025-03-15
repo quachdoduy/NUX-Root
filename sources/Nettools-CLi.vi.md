@@ -24,6 +24,8 @@ Notes on project implementation with Linux.
     - [route](#route)
     - [netstat](#netstat)
 
+---
+
 # PREFACE
 Bộ công cụ **net-tools** là một tập hợp các lệnh quản lý mạng trên hệ điều hành Unix/Linux, được sử dụng rộng rãi trong nhiều năm trước khi bị thay thế bởi **iproute2**.
 
