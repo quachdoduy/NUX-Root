@@ -32,6 +32,8 @@ sudo passwd root
 sudo -
 ```
 
+---
+
 # ALLOW SSH FOR ROOT USER
 >Theo mặc định, tài khoản root sau khi được kích hoạt vẫn không được truy cập máy chủ Ubuntu bằng phương thức SSH. Do đó, chúng tôi mở quyền truy cập SSH cho tài khoản root như sau.
 
@@ -53,6 +55,8 @@ sudo systemctl restart ssh
 ```bash
 sudo ssh root@<"ip_server">
 ```
+
+---
 
 # REMOVE USER ACCOUNT
 >Theo mặc định, hệ thống máy chủ Ubuntu đã khởi tạo một tài khoản quản trị viên (không phải root) mà bạn đã nhập trong quá trình cài đặt. Do đó, chúng tôi xóa tài khoản quản trị viên như bên dưới.
@@ -76,6 +80,8 @@ cat /etc/passwd | grep <"account_to_be_deleted">
 userdel -r <"account_to_be_deleted">
 ```
 
+---
+
 # INSTALL TOOLS
 >Có một số công cụ cần thiết dành cho quản trị viên (theo quan điểm cá nhân) mà nó không được cài đặt mặc định trên máy chủ Ubuntu.
 
@@ -86,6 +92,8 @@ Danh sachs Tools:
 ```bash
 sudo apt install -y net-tools telnet traceroute
 ```
+
+---
 
 # UPDATE NEW PACKAGE
 Luôn thực hiện cập nhật bản mới nhất trước khi cài đặt dịch vụ.
