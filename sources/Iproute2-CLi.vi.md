@@ -23,6 +23,8 @@ Notes on project implementation with Linux.
     - [ip neigh](#ip-neigh)
     - [ip monitor](#ip-monitor)
 
+---
+
 # PREFACE
 **iproute2** là công cụ hiện đại, thay thế hoàn toàn **net-tools** với nhiều cải tiến về hiệu suất, bảo mật và hỗ trợ IPv6. Nếu bạn đã quen với **net-tools**, việc chuyển sang **iproute2** sẽ giúp bạn quản lý hệ thống mạng Linux hiệu quả hơn.
 
