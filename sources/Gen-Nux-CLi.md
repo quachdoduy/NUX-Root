@@ -32,6 +32,8 @@ sudo passwd root
 sudo -
 ```
 
+---
+
 # ALLOW SSH FOR ROOT USER
 >By default, the root account after being enabled still cannot access the Ubuntu server using SSH method. Therefore, we enable SSH access for the root account as follows.
 
@@ -53,6 +55,8 @@ sudo systemctl restart ssh
 ```bash
 sudo ssh root@<"ip_server">
 ```
+
+---
 
 # REMOVE USER ACCOUNT
 >By default, the Ubuntu server system has initialized an administrator account (not root) that you entered during the installation process. Therefore, we delete the administrator account as below.
@@ -76,6 +80,8 @@ cat /etc/passwd | grep <"account_to_be_deleted">
 userdel -r <"account_to_be_deleted">
 ```
 
+---
+
 # INSTALL TOOLS
 >There are some essential tools for administrators (in my opinion) that are not installed by default on Ubuntu servers.
 
@@ -86,6 +92,8 @@ List Tools:
 ```bash
 sudo apt install -y net-tools telnet traceroute
 ```
+
+---
 
 # UPDATE NEW PACKAGE
 >Always perform the latest update before installing the service.
