@@ -23,6 +23,8 @@ Notes on project implementation with Linux.
     - [ip neigh](#ip-neigh)
     - [ip monitor](#ip-monitor)
 
+---
+
 # PREFACE
 **iproute2** is a modern, complete replacement for **net-tools** with many improvements in performance, security and IPv6 support. If you are familiar with **net-tools**, switching to **iproute2** will help you manage your Linux network more effectively.
 
