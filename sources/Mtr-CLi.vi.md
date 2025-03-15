@@ -17,6 +17,8 @@ Notes on project implementation with Linux.
 - [COMMONLY USED COMMANDS](#commonly-used-commands)
     - [mtr](#mtr)
 
+---
+
 # PREFACE
 - **mtr** kết hợp chức năng của các chương trình '**traceroute**' và '**ping**' trong một công cụ chẩn đoán mạng duy nhất.
 - Khi mtr khởi động, nó sẽ điều tra kết nối mạng giữa máy chủ mà mtr chạy và máy chủ đích do người dùng chỉ định. Sau khi xác định địa chỉ của mỗi bước nhảy mạng giữa các máy, nó sẽ gửi một chuỗi các yêu cầu ICMP ECHO đến từng máy để xác định chất lượng liên kết đến từng máy. Khi thực hiện việc này, nó sẽ in số liệu thống kê đang chạy về từng máy.
