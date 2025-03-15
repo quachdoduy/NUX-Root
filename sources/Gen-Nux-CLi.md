@@ -17,7 +17,7 @@ Notes on project implementation with Linux.
 - [INSTALL TOOLS](#install-tools)
 - [UPDATE NEW PACKAGE](#update-new-package)
 
-- - -
+---
 
 # ENABLE ROOT USER
 >By default, Ubuntu server system does not enable root account after successful installation. Therefore, we enable root account as below.
