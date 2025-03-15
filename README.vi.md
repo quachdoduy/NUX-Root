@@ -22,5 +22,4 @@ Ghi chú về việc triển khai dự án với Linux.
     - [NTP Server]()
     - [DHCP Server]()
 
-
 *[Lên đầu trang](#nux-root)*
