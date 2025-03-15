@@ -16,7 +16,7 @@ Notes on project implementation with Linux.
 - Tools for Linux
     - [Net-Tools](sources/Nettools-CLi.md)
     - [IPRoute2](sources/Iproute2-CLi.md)
-    - [MTR](https://www.bitwizard.nl/mtr/)
+    - [MTR](sources/Mtr-CLi.md)
 - System
     - [Keep Alived](https://www.keepalived.org/)
     - [NTP Server]()
