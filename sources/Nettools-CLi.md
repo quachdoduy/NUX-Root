@@ -24,6 +24,8 @@ Notes on project implementation with Linux.
     - [route](#route)
     - [netstat](#netstat)
 
+---
+
 # PREFACE
 The **net-tools** toolkit is a collection of network management commands on Unix/Linux operating systems, which was widely used for many years before being replaced by **iproute2**.
 
