@@ -19,6 +19,10 @@ Notes on project implementation with Linux.
 **Keepalived là phần mềm miễn phí**; bạn có thể phân phối lại và/hoặc sửa đổi nó theo các điều khoản của Giấy phép Công cộng GNU do Free Software Foundation công bố; phiên bản 2 của Giấy phép hoặc (tùy bạn lựa chọn) bất kỳ phiên bản nào mới hơn.
 
 ## Tham khảo tài liệu gốc
+- webpage: https://www.keepalived.org/
+- github: https://github.com/acassen/keepalived/
+- user guide: https://keepalived.readthedocs.io
+- social: https://x.com/keepalived
 
 
 *[Lên đầu trang](#nux-root--iproute2-linux-cli)*
