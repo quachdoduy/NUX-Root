@@ -27,15 +27,15 @@ Notes on project implementation with Linux.
 
 # BASIC INSTRUCTIONS
 - Install keepalived (for all nodes in cluster).
-```
+```bash
 sudo apt install -y keepalived
 ```
 - Modify keepalived.conf file.
-```
+```bash
 sudo nano /etc/keepalived/keepalived.conf
 ```
 - The short form is as follows.
-```
+```bash
 vrrp_instance string {          # identify a VRRP instance definition block
     state MASTER|BACKUP         # specify the instance state in standard use
     interface string            # specify the network interface for the instance to run on
@@ -55,7 +55,7 @@ vrrp_instance string {          # identify a VRRP instance definition block
 ```
 - Example.
     * *Node Master*
-```
+```bash
 vrrp_instance VipKA {
     state MASTER
     interface ens33
@@ -74,7 +74,7 @@ vrrp_instance VipKA {
 
     * *Node Backup*
 
-```
+```bash
 vrrp_instance VipKA {
     state BACKUP
     interface ens33
