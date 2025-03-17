@@ -26,6 +26,8 @@ Notes on project implementation with Linux.
 ---
 
 # BASIC INSTRUCTIONS
+
+## Install
 - Install keepalived (for all nodes in cluster).
 ```bash
 sudo apt install -y keepalived
@@ -92,5 +94,24 @@ vrrp_instance VipKA {
 ```bash
 sudo systemctl restart keepalived
 ```
+
+## Check Status
+- Check which node is the Master.
+```bash
+ip addr show | grep "Virtual_IP"
+```
+- View Keepalived VRRP status.
+```bash
+watch -n 1 "ip -br addr show dev your_NIC_nae"
+```
+- View Keepalived log.
+```bash
+journalctl -u keepalived --no-pager | tail -50
+```
+
+# ADVANCED INSTRUCTIONS
+
+## Master voting process
+
 
 *[Back to Top](#nux-root--keepalived-linux-cli)*
