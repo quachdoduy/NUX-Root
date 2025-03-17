@@ -54,8 +54,8 @@ vrrp_instance string {          # identify a VRRP instance definition block
 }
 ```
 - Example.
-    * *Node Master*
 ```bash
+# *Node Master*
 vrrp_instance VipKA {
     state MASTER
     interface ens33
@@ -71,10 +71,8 @@ vrrp_instance VipKA {
     }
 }
 ```
-
-    * *Node Backup*
-
 ```bash
+# *Node Backup*
 vrrp_instance VipKA {
     state BACKUP
     interface ens33
