@@ -71,7 +71,9 @@ vrrp_instance VipKA {
     }
 }
 ```
+
     * *Node Backup*
+
 ```
 vrrp_instance VipKA {
     state BACKUP
