@@ -88,5 +88,9 @@ vrrp_instance VipKA {
     }
 }
 ```
+-  Restart keepalived service.
+```bash
+sudo systemctl restart keepalived
+```
 
 *[Back to Top](#nux-root--keepalived-linux-cli)*
