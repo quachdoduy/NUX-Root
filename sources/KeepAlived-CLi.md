@@ -35,7 +35,8 @@ sudo apt install -y keepalived
 sudo nano /etc/keepalived/keepalived.conf
 ```
 - The short form is as follows.
->vrrp_instance string {         # identify a VRRP instance definition block
+```
+vrrp_instance string {         # identify a VRRP instance definition block
     state MASTER|BACKUP         # specify the instance state in standard use
     interface string            # specify the network interface for the instance to run on
     virtual_router_id num       # specify to which VRRP router id the instance belongs
@@ -50,6 +51,7 @@ sudo nano /etc/keepalived/keepalived.conf
         @IP
         @IP
     }
-} 
+}
+```
 
 *[Back to Top](#nux-root--iproute2-linux-cli)*
