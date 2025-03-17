@@ -1,4 +1,4 @@
-# NUX-Root / MTR Linux CLi
+# NUX-Root / KeepAlived Linux CLi
 Notes on project implementation with Linux.
 
 [![Lang EN](https://img.shields.io/badge/lang-en-yellow)](KeepAlived-CLi.md)
