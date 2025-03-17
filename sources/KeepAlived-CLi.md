@@ -53,7 +53,7 @@ vrrp_instance string {          # identify a VRRP instance definition block
     }
 }
 ```
-- Example.
+- Example.<br>
 *Node Master*
 ```
 vrrp_instance VipKA {
