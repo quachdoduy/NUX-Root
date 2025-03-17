@@ -13,7 +13,7 @@ Notes on project implementation with Linux.
 - [TABLE OF CONTENTS](#table-of-contents)
 - [PREFACE](#preface)
     - [Install](#install)
-    - [Refer to original document](#refer-to-original-document)
+    - [Refer to original document](#tham-khảo-tài-liệu-gốc)
 - [COMMONLY USED COMMANDS](#commonly-used-commands)
     - [mtr](#mtr)
 
@@ -30,7 +30,7 @@ Notes on project implementation with Linux.
 sudo apt install -y mtr
 ```
 
-## Refer to original document
+## Tham khảo tài liệu gốc
 - webpage: http://www.BitWizard.nl/mtr/
 - github: https://github.com/traviscross/mtr
 
