@@ -40,7 +40,7 @@ vrrp_instance string {          # identify a VRRP instance definition block
     state MASTER|BACKUP         # specify the instance state in standard use
     interface string            # specify the network interface for the instance to run on
     virtual_router_id num       # specify to which VRRP router id the instance belongs
-    priority num                # specify the instance priority in the VRRP router
+    priority num                # specify the instance priority in the VRRP router (range from 1 to 255)
     advert_int num              # specify the advertisement interval in seconds (set to 1)
     authentication {            # identify a VRRP authentication definition block
         auth_type PASS|AH       # specify which kind of authentication to use (PASS|AH)
@@ -53,8 +53,8 @@ vrrp_instance string {          # identify a VRRP instance definition block
     }
 }
 ```
-- Example.<br>
-*Node Master*
+- Example.
+    * *Node Master*
 ```
 vrrp_instance VipKA {
     state MASTER
@@ -71,7 +71,7 @@ vrrp_instance VipKA {
     }
 }
 ```
-*Node Backup*
+    * *Node Backup*
 ```
 vrrp_instance VipKA {
     state BACKUP
