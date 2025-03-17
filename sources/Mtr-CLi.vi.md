@@ -83,4 +83,4 @@ sudo apt install -y mtr
 - Examples:
     - `mtr [domainName/IP]` : Kiểm tra kết nối tới domain/IP.
 
-*[Lên đầu trang](#nux-root--iproute2-linux-cli)*
+*[Lên đầu trang](#nux-root--mtr-linux-cli)*
