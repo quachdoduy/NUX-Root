@@ -27,11 +27,11 @@ Notes on project implementation with Linux.
 
 # BASIC INSTRUCTIONS
 - Install keepalived (for all nodes in cluster).
-```bash
+```
 sudo apt install -y keepalived
 ```
 - Modify keepalived.conf file.
-```bash
+```
 sudo nano /etc/keepalived/keepalived.conf
 ```
 - The short form is as follows.
