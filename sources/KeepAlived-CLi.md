@@ -53,5 +53,40 @@ vrrp_instance string {          # identify a VRRP instance definition block
     }
 }
 ```
+- Example.
+*Node Master*
+```
+vrrp_instance VipKA {
+    state MASTER
+    interface ens33
+    virtual_router_id 69
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass V3ryS3cr3t
+    }
+    virtual_ipaddress {
+        192.168.69.1
+    }
+}
+```
+*Node Backup*
+```
+vrrp_instance VipKA {
+    state BACKUP
+    interface ens33
+    virtual_router_id 69
+    priority 99
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass V3ryS3cr3t
+    }
+    virtual_ipaddress {
+        192.168.69.1
+    }
+}
+```
 
 *[Back to Top](#nux-root--keepalived-linux-cli)*
