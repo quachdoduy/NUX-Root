@@ -19,8 +19,9 @@ Notes on project implementation with Linux.
     - [Kiểm tra trạng thái](#kiểm-tra-trạng-thái)
 - [ADVANCED INSTRUCTIONS](#advanced-instructions)
 
-
 ---
+
+<img alt="Keep Alived" src="https://www.keepalived.org/images/ka-header-new.png">
 
 # PREFACE
 - **Keepalived** là một phần mềm định tuyến được viết bằng C. Mục tiêu chính của dự án này là cung cấp các tiện ích đơn giản và mạnh mẽ để cân bằng tải và tính khả dụng cao cho hệ thống Linux và cơ sở hạ tầng dựa trên Linux. Khung cân bằng tải dựa trên mô-đun hạt nhân Linux Virtual Server (IPVS) nổi tiếng và được sử dụng rộng rãi cung cấp cân bằng tải Layer4. **Keepalived** triển khai một bộ kiểm tra để duy trì và quản lý nhóm máy chủ cân bằng tải một cách năng động và thích ứng theo tình trạng của chúng. Mặt khác, tính khả dụng cao đạt được bằng giao thức VRRP. VRRP là một khối cơ bản để chuyển đổi dự phòng bộ định tuyến. Ngoài ra, **Keepalived** triển khai một bộ móc vào máy trạng thái hữu hạn VRRP cung cấp các tương tác giao thức cấp thấp và tốc độ cao. Để cung cấp khả năng phát hiện lỗi mạng nhanh nhất, **Keepalived** triển khai giao thức BFD. Quá trình chuyển đổi trạng thái VRRP có thể tính đến gợi ý BFD để thúc đẩy quá trình chuyển đổi trạng thái nhanh. Các khung **Keepalived** có thể được sử dụng độc lập hoặc kết hợp với nhau để cung cấp cơ sở hạ tầng phục hồi.
