@@ -26,7 +26,7 @@ Notes on project implementation with Linux.
 
 ## Install
 - Với `Ubuntu 22.04` trở lên, nó đã được tích hợp theo mặc định trong trình cài đặt. Dưới đây là lệnh cài đặt cho các phiên bản không được tích hợp.
-```bash
+```
 sudo apt install -y mtr
 ```
 
