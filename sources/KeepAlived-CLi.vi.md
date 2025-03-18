@@ -43,15 +43,15 @@ Notes on project implementation with Linux.
 
 ## Cài đặt
 - Cài đặt keepalived (cho tất cả các nút trong cụm).
-```bash
+```
 sudo apt install -y keepalived
 ```
 - Sửa đổi tệp keepalived.conf.
-```bash
+```
 sudo nano /etc/keepalived/keepalived.conf
 ```
 - Dạng viết tắt như sau.
-```bash
+```
 vrrp_instance string {          # identify a VRRP instance definition block
     state MASTER|BACKUP         # specify the instance state in standard use
     interface string            # specify the network interface for the instance to run on
@@ -70,7 +70,7 @@ vrrp_instance string {          # identify a VRRP instance definition block
 }
 ```
 - Ví dụ.
-```bash
+```
 # *Node Master*
 vrrp_instance VipKA {
     state MASTER
@@ -87,7 +87,7 @@ vrrp_instance VipKA {
     }
 }
 ```
-```bash
+```
 # *Node Backup*
 vrrp_instance VipKA {
     state BACKUP
@@ -105,21 +105,21 @@ vrrp_instance VipKA {
 }
 ```
 -  Khởi động lại dịch vụ keepalived.
-```bash
+```
 sudo systemctl restart keepalived
 ```
 
 ## Kiểm tra trạng thái
 - Kiểm tra xem nút nào là nút Master.
-```bash
+```
 ip addr show | grep "Virtual_IP"
 ```
 - Xem trạng thái VRRP đã được Keepalived.
-```bash
+```
 watch -n 1 "ip -br addr show dev your_NIC_nae"
 ```
 - Xem nhật ký Keepalived.
-```bash
+```
 journalctl -u keepalived --no-pager | tail -50
 ```
 
