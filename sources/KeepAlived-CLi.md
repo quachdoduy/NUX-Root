@@ -10,6 +10,14 @@ Notes on project implementation with Linux.
 [![donate with buymeacoffe](https://img.shields.io/badge/Like_it%3F-Donate!-blue?logo=githubsponsors&logoColor=orange&style=flat)](https://buymeacoffee.com/quachdoduy)
 
 # TABLE OF CONTENTS
+- [TABLE OF CONTENTS](#table-of-contents)
+- [PREFACE](#preface)
+    - [Refer to original document](#refer-to-original-document)
+    - [Refer to expanded document](#refer-to-expanded-document)
+- [BASIC INSTRUCTIONS](#basic-instructions)
+    - [Install](#install)
+    - [Check Status](#check-status)
+- [ADVANCED INSTRUCTIONS](#advanced-instructions)
 
 ---
 
@@ -22,6 +30,9 @@ Notes on project implementation with Linux.
 - github: https://github.com/acassen/keepalived/
 - user guide: https://keepalived.readthedocs.io
 - social: https://x.com/keepalived
+
+## Refer to expanded document
+- RFC 9568: https://datatracker.ietf.org/doc/html/rfc9568
 
 ---
 
@@ -110,8 +121,12 @@ journalctl -u keepalived --no-pager | tail -50
 ```
 
 # ADVANCED INSTRUCTIONS
+- The Master election process is divided into 3 main stages, following the latest standards currently issued for VRRP version 3.
+    - Initialize
+    - Active
+    - Backup
 
-## Master voting process
+<img alt="Master Election" src="../assets/images/Master Voting Process.png">
 
 
 *[Back to Top](#nux-root--keepalived-linux-cli)*
