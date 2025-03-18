@@ -23,12 +23,12 @@ Notes on project implementation with Linux.
 >By default, Ubuntu server system does not enable root account after successful installation. Therefore, we enable root account as below.
 
 - Set a password for the `root` account.
-```bash
+```
 sudo passwd root
 ```
 *Then enter the new password for the root account.*
 - Switch to `root` account.
-```bash
+```
 sudo -
 ```
 
@@ -38,7 +38,7 @@ sudo -
 >By default, the root account after being enabled still cannot access the Ubuntu server using SSH method. Therefore, we enable SSH access for the root account as follows.
 
 - Edit file `sshd_config`. *(SSH config file)*
-```bash
+```
 sudo nano /etc/ssh/sshd_config
 ```
 - All edited lines need to remove comment (**#**) at the beginning of the line removed.
@@ -47,12 +47,12 @@ sudo nano /etc/ssh/sshd_config
 - Save change by hotkey `CTRL + O`. *(over-write)*
 - Exit nano by hotkey `CTRL + X`. *(exit)*
 - Restart SSH Service.
-```bash
+```
 sudo systemctl restart ssh
 ```
 
 - Test SSH connection with root account.
-```bash
+```
 sudo ssh root@<"ip_server">
 ```
 
@@ -63,20 +63,20 @@ sudo ssh root@<"ip_server">
 *Note: do this after successfully activating the root account.*
 
 - Double check the `sudo` rights of the account to be deleted.
-```bash
+```
 sudo cat /etc/sudoers.d/<"account_to_be_deleted">
 ```
 *If that account has sudo rights you should delete this file first.*
-```bash
+```
 sudo rm /etc/sudoers.d/<"account_to_be_deleted">
 ```
 
 - Check user list before deleting.
-```bash
+```
 cat /etc/passwd | grep <"account_to_be_deleted">
 ```
 - Perform administrator account deletion.
-```bash
+```
 userdel -r <"account_to_be_deleted">
 ```
 
@@ -89,7 +89,7 @@ List Tools:
 - [Net-tools](https://sourceforge.net/projects/net-tools/)
 - Telnet Client
 - [Tracerout](https://sourceforge.net/projects/traceroute/)
-```bash
+```
 sudo apt install -y net-tools telnet traceroute
 ```
 
@@ -97,7 +97,7 @@ sudo apt install -y net-tools telnet traceroute
 
 # UPDATE NEW PACKAGE
 >Always perform the latest update before installing the service.
-```bash
+```
 sudo apt update && sudo apt upgrade -y
 ```
 
