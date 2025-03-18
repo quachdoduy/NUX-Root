@@ -26,7 +26,7 @@ Notes on project implementation with Linux.
 
 ## Install
 - With `Ubuntu 22.04` and above, it is already integrated by default in the installer. Below is the installation command for versions that are not integrated.
-```bash
+```
 sudo apt install -y mtr
 ```
 
