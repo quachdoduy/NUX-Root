@@ -103,7 +103,7 @@ child_wait_time SECS
 *Note: All processes/scripts run by keepalived are run with parent death signal set to SIGTERM. All such processes/scripts should either not change the action for SIGTERM, or ensure that the process/script terminates once SIGTERM is received, possibly following any cleanup actions needed.*
 
 ### Global definitions configuration block
-```python
+```conf
 global_defs {
     tmp_config_directory DIRECTORY
 }
