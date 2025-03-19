@@ -87,7 +87,7 @@ instance NAME
 
 >Create pid files in /run/keepalived
 ```
-use_pid_dir
+>use_pid_dir
 ```
 
 >Poll to detect media link failure using ETHTOOL, MII or ioctl interface otherwise uses netlink interface.
@@ -99,5 +99,9 @@ linkbeat_use_polling
 ```
 child_wait_time SECS
 ```
+
+*Note: All processes/scripts run by keepalived are run with parent death signal set to SIGTERM. All such processes/scripts should either not change the action for SIGTERM, or ensure that the process/script terminates once SIGTERM is received, possibly following any cleanup actions needed.*
+
+
 
 *[Back to Top](#nux-root--keepalived-hierachy)*
