@@ -128,7 +128,10 @@ journalctl -u keepalived --no-pager | tail -50
     - Active
     - Backup
 
-<img alt="Master Election" src="../assets/images/Master Voting Process.png">
+<img alt="Master Election" src="../assets/images/Master Voting Process.png" />
 
+- A VRRP virtual router uses the **MAC address 00:00:5E:00:01:XX**, being XX the Virtual Router Identifier (VRID), which is different for each virtual router in the network. Physical routers within the virtual router (that means, each instance spawned in a host which is part of a virtual router) must communicate within themselves using packets with **multicast address 224.0.0.18** and **IP protocol 112**. In a nutshell, this is what you’ll see capturing in the HA interface:
+
+<img alt="VRRP Cap" src="../assets/images/VRRP_cap.png" />
 
 *[Back to Top](#nux-root--keepalived-linux-cli)*
