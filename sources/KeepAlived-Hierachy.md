@@ -65,45 +65,39 @@ For details of what configuration combinations are valid, see the ipvsadm(8) man
 # SUBBLOCKS OF - GLOBAL CONFIGURATION
 
 ## Global definitions
->Following are global daemon facilities for running keepalived in a separate network namespace:
-- Set the network namespace to run in. The directory /run/keepalived will be created as an unshared mount point, for example for pid files. syslog entries will have _NAME appended to the ident.
-Note: the namespace cannot be changed on a configuration reload.
+>Following are global daemon facilities for running keepalived in a separate network namespace:<br>Set the network namespace to run in. The directory /run/keepalived will be created as an unshared mount point, for example for pid files. syslog entries will have _NAME appended to the ident.<br>*Note: the namespace cannot be changed on a configuration reload.*
 ```
 net_namespace NAME
 ```
 
+>Add the IPVS configuration in the specified net namespace. It allows to easily split the VIP traffic on a given namespace and keep the healthchecks traffic in another namespace. If NAME is not specified, then the default namespace will be used.
 ```
-# Add the IPVS configuration in the specified net namespace. It allows
-# to easily split the VIP traffic on a given namespace and keep the 
-# healthchecks traffic in another namespace. If NAME is not specified, 
-# then the default namespace will be used.
 net_namespace_ipvs NAME
+```
 
-# ipsets wasn't network namespace aware until Linux 3.13, and so if 
-# running with an earlier version of the kernel, by default use of 
-# ipsets is disabled if using a namespace and vrrp_ipsets has not 
-# been specified. This options overrides the default and allows ipsets 
-# to be used with a namespace on kernels prior to 3.13.
+>ipsets wasn't network namespace aware until Linux 3.13, and so if running with an earlier version of the kernel, by default use of ipsets is disabled if using a namespace and vrrp_ipsets has not been specified. This options overrides the default and allows ipsets to be used with a namespace on kernels prior to 3.13.
+```
 namespace_with_ipsets
+```
 
-# If multiple instances of keepalived are run in the same namespace,
-# this will create pid files with NAME as part of the file names, in 
-# /run/keepalived.
-# Note: the instance name cannot be changed on a configuration reload
+>If multiple instances of keepalived are run in the same namespace, this will create pid files with NAME as part of the file names, in /run/keepalived.<br>*Note: the instance name cannot be changed on a configuration reload.*
+```
 instance NAME
+```
 
-# Create pid files in /run/keepalived
+>Create pid files in /run/keepalived
+```
 use_pid_dir
+```
 
-# Poll to detect media link failure using ETHTOOL, MII or ioctl interface
-# otherwise uses netlink interface.
+>Poll to detect media link failure using ETHTOOL, MII or ioctl interface otherwise uses netlink interface.
+```
 linkbeat_use_polling
+```
 
-# Time for main process to allow for child processes to exit on termination
-# in seconds. This can be needed for very large configurations.
-# (default: 5)
+>Time for main process to allow for child processes to exit on termination in seconds. This can be needed for very large configurations.<br>*(default: 5)*
+```
 child_wait_time SECS
 ```
-
 
 *[Back to Top](#nux-root--keepalived-hierachy)*
