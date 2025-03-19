@@ -66,6 +66,7 @@ For details of what configuration combinations are valid, see the ipvsadm(8) man
 
 ## Global definitions
 >Following are global daemon facilities for running keepalived in a separate network namespace:
+--
 >Set the network namespace to run in. The directory /run/keepalived will be created as an unshared mount point, for example for pid files. syslog entries will have _NAME appended to the ident.
 Note: the namespace cannot be changed on a configuration reload.
 ```
