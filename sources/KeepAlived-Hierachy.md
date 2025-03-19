@@ -106,11 +106,13 @@ child_wait_time SECS
 ```conf
 global_defs {
     tmp_config_directory DIRECTORY
+    config_save_dir DIRECTORY
 }
 ```
 | Field | Description |
 |:------|:------------|
-| tmp_config_directory DIRECTORY | In order to ensure that all processes read exactly the same configuration, while the config is first read it is written, by default, to a memory based file (or to an anonymous file in /tmp/ if memfd_create() is not supported). If your configuration is very large, you may not want the copy to be held in memory, in which case specifing the tmp_config_directory causes the configuration to be written to an anonymous file on the filesystem on which the specified directory resides, which must be writeable by keepalived. This setting cannot be changed on a reload, and it should be specified as early as possible in the configuration. |
+| tmp_config_directory DIRECTORY | In order to ensure that all processes read exactly the same configuration, while the config is first read it is written, by default, to a memory based file (or to an anonymous file in /tmp/ if memfd_create() is not supported).<br> If your configuration is very large, you may not want the copy to be held in memory, in which case specifing the tmp_config_directory causes the configuration to be written to an anonymous file on the filesystem on which the specified directory resides, which must be writeable by keepalived.<br> This setting cannot be changed on a reload, and it should be specified as early as possible in the configuration. |
+| config_save_dir DIRECTORY | config_save_dir causes keepalived to save configuration state and configuration files before and after each reload.<br> This is used for debugging purposes if there appear to be problems related to repeated reloads.<br> The directory will be created if it does not exist, but all parent directories must exist. |
 
 
 *[Back to Top](#nux-root--keepalived-hierachy)*
