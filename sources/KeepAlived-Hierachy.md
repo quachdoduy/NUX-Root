@@ -112,6 +112,10 @@ global_defs {
     vrrp_process_name NAME
     checker_process_name NAME
     bfd_process_name NAME
+    startup_script SCRIPT_NAME [username [groupname]]
+    startup_script_timeout SECONDS    # range [1,1000]
+    shutdown_script SCRIPT_NAME [username [groupname]]
+    shutdown_script_timeout SECONDS   # range [1,1000]
 }
 ```
 | Field                          | Description |
@@ -123,5 +127,6 @@ global_defs {
 | vrrp_process_name NAME | Specify the individual process names |
 | checker_process_name NAME | Specify the individual process names |
 | bfd_process_name NAME | Specify the individual process names |
+| startup_script SCRIPT_NAME<br>startup_script_timeout SECONDS<br>shutdown_script SCRIPT_NAME<br>shutdown_script_timeout SECONDS | The startup and shutdown scripts are run once, when keepalived startsbefore any child processes are run, and when keepalived stops after all child processes have terminated, respectively.<br> The original motivation for adding this feature was that although keepalived can setup IPVS configuration using firewall marks, there was no mechanism for adding configuration to set the firewall marks (or for removing it afterwards).<br> This feature can also be used to setup the iptables framework required if using iptables (see vrrp_iptables option below), modify interface settings, or anything else that can be done from a script or program.<br> Only one startup script and one shutdown script can be specified.<br> The timeouts (in seconds default 10 seconds) are the time allowed for scripts to run; if the timeout expires the scripts will be killed (this is to stop keepalived hanging waiting for the scripts to terminate). |
 
 *[Back to Top](#nux-root--keepalived-hierachy)*
