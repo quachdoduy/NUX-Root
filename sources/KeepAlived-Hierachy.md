@@ -108,8 +108,9 @@ global_defs {
     tmp_config_directory DIRECTORY
 }
 ```
-
-[tmp_config_directory DIRECTORY](#global-definitions-configuration-block "In order to ensure that all processes read exactly the same configuration, while the config is first read it is written, by default, to a memory based file (or to an anonymous file in /tmp/ if memfd_create() is not supported).<br> If your configuration is very large, you may not want the copy to be held in memory, in which case specifing the tmp_config_directory causes the configuration to be written to an anonymous file on the filesystem on which the specified directory resides, which must be writeable by keepalived.<br> This setting cannot be changed on a reload, and it should be specified as early as possible in the configuration.")
+| Field | Description |
+|:------|:------------|
+| tmp_config_directory DIRECTORY | In order to ensure that all processes read exactly the same configuration, while the config is first read it is written, by default, to a memory based file (or to an anonymous file in /tmp/ if memfd_create() is not supported). If your configuration is very large, you may not want the copy to be held in memory, in which case specifing the tmp_config_directory causes the configuration to be written to an anonymous file on the filesystem on which the specified directory resides, which must be writeable by keepalived. This setting cannot be changed on a reload, and it should be specified as early as possible in the configuration. |
 
 
 *[Back to Top](#nux-root--keepalived-hierachy)*
