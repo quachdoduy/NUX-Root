@@ -46,22 +46,22 @@ Notes on project implementation with Linux.
 sudo apt install -y keepalived
 ```
 - Modify keepalived.conf file.
-```
+```ssh
 sudo nano /etc/keepalived/keepalived.conf
 ```
 - The short form is as follows.
-```
-vrrp_instance string {          # identify a VRRP instance definition block
-    state MASTER|BACKUP         # specify the instance state in standard use
-    interface string            # specify the network interface for the instance to run on
-    virtual_router_id num       # specify to which VRRP router id the instance belongs
-    priority num                # specify the instance priority in the VRRP router (range from 1 to 255)
-    advert_int num              # specify the advertisement interval in seconds (set to 1)
-    authentication {            # identify a VRRP authentication definition block
-        auth_type PASS|AH       # specify which kind of authentication to use (PASS|AH)
-        auth_pass string        # specify the password string to use
+```bash
+vrrp_instance string {      # identify a VRRP instance definition block
+    state MASTER|BACKUP     # specify the instance state in standard use
+    interface string        # specify the network interface for the instance to run on
+    virtual_router_id num   # specify to which VRRP router id the instance belongs
+    priority num            # specify the instance priority in the VRRP router (range from 1 to 255)
+    advert_int num          # specify the advertisement interval in seconds (set to 1)
+    authentication {        # identify a VRRP authentication definition block
+        auth_type PASS|AH   # specify which kind of authentication to use (PASS|AH)
+        auth_pass string    # specify the password string to use
     }
-    virtual_ipaddress {         # identify a VRRP VIP definition block (Block limited to 20 IP addresses) 
+    virtual_ipaddress {     # identify a VRRP VIP definition block (Block limited to 20 IP addresses) 
         @IP
         @IP
         @IP
@@ -69,37 +69,37 @@ vrrp_instance string {          # identify a VRRP instance definition block
 }
 ```
 - Example.
-```
+```bash
 # *Node Master*
 vrrp_instance VipKA {
-    state MASTER
-    interface ens33
-    virtual_router_id 69
-    priority 100
-    advert_int 1
+    state MASTER            # state of note is MASTER.
+    interface ens33         # vrrp_instance network interface is ens33.
+    virtual_router_id 69    # vr_id is 69
+    priority 100            # priority is 100
+    advert_int 1            # advertisement interval is 1s.
     authentication {
         auth_type PASS
         auth_pass V3ryS3cr3t
     }
     virtual_ipaddress {
-        192.168.69.1
+        192.168.69.1        # VIP is 192.168.69.1
     }
 }
 ```
-```
+```bash
 # *Node Backup*
 vrrp_instance VipKA {
-    state BACKUP
-    interface ens33
-    virtual_router_id 69
-    priority 99
-    advert_int 1
+    state BACKUP            # state of note is BACKUP.
+    interface ens33         # vrrp_instance network interface is ens33.
+    virtual_router_id 69    # vr_id is 69
+    priority 99             # priority is 99
+    advert_int 1            # advertisement interval is 1s.
     authentication {
         auth_type PASS
         auth_pass V3ryS3cr3t
     }
     virtual_ipaddress {
-        192.168.69.1
+        192.168.69.1        # VIP is 192.168.69.1
     }
 }
 ```
@@ -122,6 +122,8 @@ watch -n 1 "ip -br addr show dev your_NIC_nae"
 journalctl -u keepalived --no-pager | tail -50
 ```
 
+---
+
 # ADVANCED INSTRUCTIONS
 - The Master election process is divided into 3 main stages, following the latest standards currently issued for VRRP version 3.
     - Initialize
@@ -133,5 +135,94 @@ journalctl -u keepalived --no-pager | tail -50
 - A VRRP virtual router uses the **MAC address 00:00:5E:00:01:XX**, being XX the Virtual Router Identifier (VRID), which is different for each virtual router in the network. Physical routers within the virtual router (that means, each instance spawned in a host which is part of a virtual router) must communicate within themselves using packets with **multicast address 224.0.0.18** and **IP protocol 112**. In a nutshell, this is what you’ll see capturing in the HA interface:
 
 <img alt="VRRP Cap" src="../assets/images/VRRP_cap.png" />
+
+---
+
+# COMMON EXAMPLES
+*Notes: The examples below are only brief on 1 node.*
+
+## Tracking Interface
+To monitor a network interface, you use the `track_interface` block in the `vrrp_instance` configuration. If the monitored interface fails, the priority of `vrrp_instance` is reduced, leading to a MASTER switch if necessary.
+
+```bash
+# *Node Master*
+vrrp_instance VipKA {
+    state MASTER            # state of note is MASTER.
+    interface ens33         # vrrp_instance network interface is ens33.
+    virtual_router_id 69    # vr_id is 69
+    priority 100            # priority is 100
+    advert_int 1            # advertisement interval is 1s.
+    authentication {
+        auth_type PASS
+        auth_pass V3ryS3cr3t
+    }
+    virtual_ipaddress {
+        192.168.69.1        # VIP is 192.168.69.1
+    }
+    track_interface {       # command block used to monitoring interface.
+        eth01               # the interface that to monitoring.
+    }
+}
+```
+*In this example, in addition to monitoring `ens33`, Keepalived also monitors `eth01`. If `eth01` fails, the ***priority*** of `vrrp_instance` will decrease.*
+
+## Tracking Process
+To monitor a process/service, you use the `vrrp_track_process` block and reference it in `vrrp_instance`. If the monitored process stops running, its priority is reduced by the specified value.
+
+```bash
+# *Node Master*
+vrrp_track_process chk_httpd {  # command block used to check process/service.
+    process "httpd"             # the process/service that to check.
+    weight -10                  # the priority index will decrease when process/service is not running.
+}
+vrrp_instance VipKA {
+    state MASTER            # state of note is MASTER.
+    interface ens33         # vrrp_instance network interface is ens33.
+    virtual_router_id 69    # vr_id is 69
+    priority 100            # priority is 100
+    advert_int 1            # advertisement interval is 1s.
+    authentication {
+        auth_type PASS
+        auth_pass V3ryS3cr3t
+    }
+    virtual_ipaddress {
+        192.168.69.1        # VIP is 192.168.69.1
+    }
+    track_process {         # command block used to monitoring process/service
+        chk_httpd           # the name of code block used to check process/service.
+    }
+}
+```
+*In this example, Keepalived monitors the `httpd` process. If `httpd` stops, the ***priority*** of `vrrp_instance` will decrease by 10.*
+
+## Tracking Script
+You can use custom scripts to check the health of a system or service. The `vrrp_script` block defines the script to run and the weight that affects the priority based on the script's results.
+
+```bash
+# *Node Master*
+vrrp_script chk_nginx {                     # command block used to check script.
+    script "/usr/local/bin/check_nginx.sh"  # the script that to check nginx status.
+    interval 5                              # the interval time to run script.
+    weight -20                              # the priority index will decrease when script return false.
+}
+vrrp_instance VipKA {
+    state MASTER            # state of note is MASTER.
+    interface ens33         # vrrp_instance network interface is ens33.
+    virtual_router_id 69    # vr_id is 69
+    priority 100            # priority is 100
+    advert_int 1            # advertisement interval is 1s.
+    authentication {
+        auth_type PASS
+        auth_pass V3ryS3cr3t
+    }
+    virtual_ipaddress {
+        192.168.69.1        # VIP is 192.168.69.1
+    }
+    track_script {          # command block used to monitoring script.
+        chk_nginx           # the name of code block used to check script.
+    }
+}
+```
+*In this example, the `check_nginx.sh` script will run every 5 seconds to check the status of `Nginx`. ***If the script returns fail***, the ***priority*** of `vrrp_instance` will be decreased by 20.*
 
 *[Back to Top](#nux-root--keepalived-linux-cli)*
