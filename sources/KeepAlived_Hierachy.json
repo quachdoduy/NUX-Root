@@ -1,0 +1,22 @@
+{"TOP HIERACHY":[
+    {"GLOBAL CONFIGURATION":[
+        {"Global definitions":""},
+        {"Linkbeat interfaces":""},
+        {"Interface up/down transition delays":""},
+        {"Static track groups":""},
+        {"Static routes/addresses/rules":""},
+        {"Track files":""},
+        {"VRRP track processes":""}
+    ]},
+    {"BFD CONFIGURATION":""},
+    {"VRRPD CONFIGURATION":[
+        {"VRRP script(s)":""},
+        {"VRRP synchronization group(s)":""},
+        {"VRRP gratuitous ARP and unsolicited neighbour advert delay group(s)":""},
+        {"VRRP instance(s)":""}
+    ]},
+    {"LVS CONFIGURATION":[
+        {"Virtual  server  group(s)":""},
+        {"Virtual server(s)":""}
+    ]}
+]}
