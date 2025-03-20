@@ -1,6 +1,20 @@
 {"TOP HIERACHY":[
     {"GLOBAL CONFIGURATION":[
-        {"Global definitions":""},
+        {"Global definitions":[
+            "net_namespace NAME",
+            "net_namespace_ipvs NAME",
+            "namespace_with_ipsets",
+            "instance NAME",
+            "use_pid_dir",
+            "linkbeat_use_polling",
+            "child_wait_time SECS",
+            {"Code block":
+                {"global_defs {}":[
+                    "tmp_config_directory DIRECTORY",
+                    ""
+                ]}
+            }
+        ]},
         {"Linkbeat interfaces":""},
         {"Interface up/down transition delays":""},
         {"Static track groups":""},
@@ -16,7 +30,15 @@
         {"VRRP instance(s)":""}
     ]},
     {"LVS CONFIGURATION":[
-        {"Virtual  server  group(s)":""},
-        {"Virtual server(s)":""}
+        {"Virtual  server  group(s)":[
+            {"Code Block":"virtual_server_group <STRING> {}"}
+        ]},
+        {"Virtual server(s)":[
+            {"Code Block":[
+                "virtual_server <IPADDR> [<PORT>] {}",
+                "virtual_server fwmark <INTEGER> {}",
+                "virtual_server group <STRING> {}"
+            ]}
+        ]}
     ]}
 ]}
