@@ -113,13 +113,17 @@ global_defs {
     checker_process_name NAME
     bfd_process_name NAME
     startup_script SCRIPT_NAME [username [groupname]]
-    startup_script_timeout SECONDS    # range [1,1000]
+    startup_script_timeout SECONDS      # range [1,1000]
     shutdown_script SCRIPT_NAME [username [groupname]]
-    shutdown_script_timeout SECONDS   # range [1,1000]
+    shutdown_script_timeout SECONDS     # range [1,1000]
     notification_email {
         admin@example1.com
         ...
     }
+    notification_email_from admin@example.com
+    smtp_server <IP_ADDRESS> [<PORT>]   # 127.0.0.1
+    smtp_helo_name <STRING>
+    smtp_connect_timeout <SECONDS>      # 30
 }
 ```
 | Field                          | Description |
@@ -130,6 +134,10 @@ global_defs {
 | process_name NAME<br><br>vrrp_process_name NAME<br><br>checker_process_name NAME<br><br>bfd_process_name NAME | Specify the individual process names |
 | startup_script SCRIPT_NAME<br><br>startup_script_timeout SECONDS<br><br>shutdown_script SCRIPT_NAME<br><br>shutdown_script_timeout SECONDS | The startup and shutdown scripts are run once, when keepalived startsbefore any child processes are run, and when keepalived stops after all child processes have terminated, respectively.<br> The original motivation for adding this feature was that although keepalived can setup IPVS configuration using firewall marks, there was no mechanism for adding configuration to set the firewall marks (or for removing it afterwards).<br> This feature can also be used to setup the iptables framework required if using iptables (see vrrp_iptables option below), modify interface settings, or anything else that can be done from a script or program.<br> Only one startup script and one shutdown script can be specified.<br> The timeouts (in seconds default 10 seconds) are the time allowed for scripts to run; if the timeout expires the scripts will be killed (this is to stop keepalived hanging waiting for the scripts to terminate). |
 | notification_email | Set of email To: notify |
+| notification_email_from | email from address that will be in the header<br>(default: keepalived@<local host name>) |
+| smtp_server 127.0.0.1 [<PORT>] | Remote SMTP server used to send notification email.<br>IP address or domain name with optional port number.<br>(default port number: 25) |
+| smtp_helo_name <STRING> | Name to use in HELO messages.<br>(default: local host name) |
+| smtp_connect_timeout 30 | SMTP server connection timeout in seconds. |
 
 
 *[Back to Top](#nux-root--keepalived-hierachy)*
