@@ -20,6 +20,10 @@ NTP (Network Time Protocol) is a protocol used to synchronize all system clocks 
 NTP belongs to the traditional TCP/IP protocol suite and is also the oldest service in the computer science foundation.
 
 ## Refer to original document
+- website: https://www.ntppool.org
+- wiki: https://en.wikipedia.org/wiki/Network_Time_Protocol
+- rfc-867: https://datatracker.ietf.org/doc/html/rfc867
+- rfc-868: https://datatracker.ietf.org/doc/html/rfc868
 
 ---
 
