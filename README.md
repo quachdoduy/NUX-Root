@@ -19,7 +19,7 @@ Notes on project implementation with Linux.
     - [MTR](sources/Mtr-CLi.md)
 - System
     - [Keep Alived](sources/KeepAlived-CLi.md)
-    - [NTP Server]()
+    - [NTP Server](sources/NtpSvr-CLi.md)
     - [DHCP Server]()
 
 *[Back to Top](#nux-root)*
