@@ -51,7 +51,7 @@ sudo apt install -y keepalived
 sudo nano /etc/keepalived/keepalived.conf
 ```
 - Dạng viết tắt như sau.
-```
+```bash
 vrrp_instance string {          # identify a VRRP instance definition block
     state MASTER|BACKUP         # specify the instance state in standard use
     interface string            # specify the network interface for the instance to run on
@@ -70,37 +70,37 @@ vrrp_instance string {          # identify a VRRP instance definition block
 }
 ```
 - Ví dụ.
-```
+```bash
 # *Node Master*
 vrrp_instance VipKA {
-    state MASTER
-    interface ens33
-    virtual_router_id 69
-    priority 100
-    advert_int 1
+    state MASTER            # state of note is MASTER.
+    interface ens33         # vrrp_instance network interface is ens33.
+    virtual_router_id 69    # vr_id is 69
+    priority 100            # priority is 100
+    advert_int 1            # advertisement interval is 1s.
     authentication {
         auth_type PASS
         auth_pass V3ryS3cr3t
     }
     virtual_ipaddress {
-        192.168.69.1
+        192.168.69.1        # VIP is 192.168.69.1
     }
 }
 ```
-```
+```bash
 # *Node Backup*
 vrrp_instance VipKA {
-    state BACKUP
-    interface ens33
-    virtual_router_id 69
-    priority 99
-    advert_int 1
+    state BACKUP            # state of note is BACKUP.
+    interface ens33         # vrrp_instance network interface is ens33.
+    virtual_router_id 69    # vr_id is 69
+    priority 99             # priority is 99
+    advert_int 1            # advertisement interval is 1s.
     authentication {
         auth_type PASS
         auth_pass V3ryS3cr3t
     }
     virtual_ipaddress {
-        192.168.69.1
+        192.168.69.1        # VIP is 192.168.69.1
     }
 }
 ```
@@ -123,6 +123,8 @@ watch -n 1 "ip -br addr show dev your_NIC_nae"
 journalctl -u keepalived --no-pager | tail -50
 ```
 
+---
+
 # ADVANCED INSTRUCTIONS
 - Quá trình bầu chọn Master được chia thành 3 giai đoạn chính, tuân theo các tiêu chuẩn mới nhất hiện hành cho VRRP version 3.
     - Initialize
@@ -134,5 +136,94 @@ journalctl -u keepalived --no-pager | tail -50
 - Bộ định tuyến ảo VRRP sử dụng **địa chỉ MAC 00:00:5E:00:01:XX**, trong đó XX là Mã định danh bộ định tuyến ảo (VRID), khác nhau đối với mỗi bộ định tuyến ảo trong mạng. Các bộ định tuyến vật lý trong bộ định tuyến ảo (tức là mỗi phiên bản được tạo ra trong một máy chủ là một phần của bộ định tuyến ảo) phải giao tiếp với nhau bằng các gói có **địa chỉ multicast 224.0.0.18** và **giao thức IP 112**. Tóm lại, đây là những gì bạn sẽ thấy khi bắt giữ trong giao diện HA:
 
 <img alt="VRRP Cap" src="../assets/images/VRRP_cap.png" />
+
+---
+
+# COMMON EXAMPLES
+*Notes: The examples below are only brief on 1 node.*
+
+## Tracking Interface
+Để giám sát giao diện mạng, bạn sử dụng khối `track_interface` trong cấu hình `vrrp_instance`. Nếu giao diện được giám sát bị lỗi, mức độ ưu tiên của `vrrp_instance` sẽ giảm, dẫn đến chuyển mạch MASTER nếu cần.
+
+```bash
+# *Node Master*
+vrrp_instance VipKA {
+    state MASTER            # state of note is MASTER.
+    interface ens33         # vrrp_instance network interface is ens33.
+    virtual_router_id 69    # vr_id is 69
+    priority 100            # priority is 100
+    advert_int 1            # advertisement interval is 1s.
+    authentication {
+        auth_type PASS
+        auth_pass V3ryS3cr3t
+    }
+    virtual_ipaddress {
+        192.168.69.1        # VIP is 192.168.69.1
+    }
+    track_interface {       # command block used to monitoring interface.
+        eth01               # the interface that to monitoring.
+    }
+}
+```
+*Trong ví dụ này, ngoài việc giám sát `ens33`, Keepalived còn giám sát `eth01`. Nếu `eth01` không thành công, ***mức độ ưu tiên*** của `vrrp_instance` sẽ giảm.*
+
+## Tracking Process
+Để giám sát một tiến trình/dịch vụ, bạn sử dụng khối `vrrp_track_process` và tham chiếu nó trong `vrrp_instance`. Nếu tiến trình được giám sát ngừng chạy, mức độ ưu tiên của nó sẽ giảm theo giá trị đã chỉ định.
+
+```bash
+# *Node Master*
+vrrp_track_process chk_httpd {  # command block used to check process/service.
+    process "httpd"             # the process/service that to check.
+    weight -10                  # the priority index will decrease when process/service is not running.
+}
+vrrp_instance VipKA {
+    state MASTER            # state of note is MASTER.
+    interface ens33         # vrrp_instance network interface is ens33.
+    virtual_router_id 69    # vr_id is 69
+    priority 100            # priority is 100
+    advert_int 1            # advertisement interval is 1s.
+    authentication {
+        auth_type PASS
+        auth_pass V3ryS3cr3t
+    }
+    virtual_ipaddress {
+        192.168.69.1        # VIP is 192.168.69.1
+    }
+    track_process {         # command block used to monitoring process/service
+        chk_httpd           # the name of code block used to check process/service.
+    }
+}
+```
+*Trong ví dụ này, Keepalived giám sát tiến trình `httpd`. Nếu `httpd` dừng lại, ***priority*** của `vrrp_instance` sẽ giảm 10.*
+
+## Tracking Script
+Bạn có thể sử dụng các tập lệnh tùy chỉnh để kiểm tra tình trạng của hệ thống hoặc dịch vụ. Khối `vrrp_script` xác định tập lệnh sẽ chạy và trọng số ảnh hưởng đến mức độ ưu tiên dựa trên kết quả của tập lệnh.
+
+```bash
+# *Node Master*
+vrrp_script chk_nginx {                     # command block used to check script.
+    script "/usr/local/bin/check_nginx.sh"  # the script that to check nginx status.
+    interval 5                              # the interval time to run script.
+    weight -20                              # the priority index will decrease when script return false.
+}
+vrrp_instance VipKA {
+    state MASTER            # state of note is MASTER.
+    interface ens33         # vrrp_instance network interface is ens33.
+    virtual_router_id 69    # vr_id is 69
+    priority 100            # priority is 100
+    advert_int 1            # advertisement interval is 1s.
+    authentication {
+        auth_type PASS
+        auth_pass V3ryS3cr3t
+    }
+    virtual_ipaddress {
+        192.168.69.1        # VIP is 192.168.69.1
+    }
+    track_script {          # command block used to monitoring script.
+        chk_nginx           # the name of code block used to check script.
+    }
+}
+```
+*Trong ví dụ này, tập lệnh `check_nginx.sh` sẽ chạy mỗi 5 giây để kiểm tra trạng thái của `Nginx`. ***Nếu tập lệnh trả về lỗi***, ***mức độ ưu tiên*** của `vrrp_instance` sẽ giảm 20.*
 
 *[Lên đầu trang](#nux-root--keepalived-linux-cli)*
