@@ -20,6 +20,10 @@ NTP (Network Time Protocol) là một giao thức được sử dụng để đ�
 NTP thuộc bộ giao thức TCP/IP truyền thống và cũng là dịch vụ lâu đời nhất trong nền tảng khoa học máy tính.
 
 ## Refer to original document
+- website: https://www.ntppool.org
+- wiki: https://en.wikipedia.org/wiki/Network_Time_Protocol
+- rfc-867: https://datatracker.ietf.org/doc/html/rfc867
+- rfc-868: https://datatracker.ietf.org/doc/html/rfc868
 
 ---
 
