@@ -16,6 +16,7 @@ Notes on project implementation with Linux.
     - [Tham khảo tài liệu mở rộng](#tham-khảo-tài-liệu-mở-rộng)
 - [BASIC INSTRUCTIONS](#basic-instructions)
     - [Cài đặt](#cài-đặt)
+    - [Cấu hình](#cấu-hình)
     - [Kiểm tra trạng thái](#kiểm-tra-trạng-thái)
 - [ADVANCED INSTRUCTIONS](#advanced-instructions)
 - [COMMON EXAMPLES](#common-examples)
@@ -54,6 +55,8 @@ sudo apt install -y keepalived
 ```
 sudo nano /etc/keepalived/keepalived.conf
 ```
+
+## Cấu hình
 - Dạng viết tắt như sau.
 ```bash
 vrrp_instance string {          # identify a VRRP instance definition block
