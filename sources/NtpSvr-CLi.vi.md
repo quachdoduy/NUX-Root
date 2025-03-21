@@ -11,7 +11,7 @@ Notes on project implementation with Linux.
 
 # TABLE OF CONTENTS
 
---
+---
 
 <img alt="Keep Alived" src="https://vitux.com/wp-content/uploads/ubuntu-24-04-ntp.png">
 
