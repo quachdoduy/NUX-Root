@@ -133,7 +133,7 @@ journalctl -u keepalived --no-pager | tail -50
 
 <img alt="Master Election" src="../assets/images/Master Voting Process.png">
 
-- Bộ định tuyến ảo VRRP sử dụng **địa chỉ MAC 00:00:5E:00:01:XX**, trong đó XX là Mã định danh bộ định tuyến ảo (VRID), khác nhau đối với mỗi bộ định tuyến ảo trong mạng. Các bộ định tuyến vật lý trong bộ định tuyến ảo (tức là mỗi phiên bản được tạo ra trong một máy chủ là một phần của bộ định tuyến ảo) phải giao tiếp với nhau bằng các gói có **địa chỉ multicast 224.0.0.18** và **giao thức IP 112**. Tóm lại, đây là những gì bạn sẽ thấy khi bắt giữ trong giao diện HA:
+- Bộ định tuyến ảo VRRP sử dụng **địa chỉ MAC 00:00:5E:00:01:XX**, trong đó XX là Mã định danh bộ định tuyến ảo (VRID), khác nhau đối với mỗi bộ định tuyến ảo trong mạng. Các bộ định tuyến vật lý trong bộ định tuyến ảo (tức là mỗi phiên bản được tạo ra trong một máy chủ là một phần của bộ định tuyến ảo) phải giao tiếp với nhau bằng các gói có **địa chỉ multicast version 4 224.0.0.18 (v6 FF02::12)** và **giao thức IP 112**. Tóm lại, đây là những gì bạn sẽ thấy khi bắt giữ trong giao diện HA:
 
 <img alt="VRRP Cap" src="../assets/images/VRRP_cap.png" />
 
