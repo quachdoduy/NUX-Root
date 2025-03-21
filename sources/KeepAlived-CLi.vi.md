@@ -18,6 +18,10 @@ Notes on project implementation with Linux.
     - [Cài đặt](#cài-đặt)
     - [Kiểm tra trạng thái](#kiểm-tra-trạng-thái)
 - [ADVANCED INSTRUCTIONS](#advanced-instructions)
+- [COMMON EXAMPLES](#common-examples)
+    - [Tracking Interface](#tracking-interface)
+    - [Tracking Process](#tracking-process)
+    - [Tracking Script](#tracking-script)
 
 ---
 
