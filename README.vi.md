@@ -19,7 +19,7 @@ Ghi chú về việc triển khai dự án với Linux.
     - [MTR](sources/Mtr-CLi.vi.md)
 - System
     - [Keep Alived](sources/KeepAlived-CLi.vi.md)
-    - [NTP Server]()
+    - [NTP Server](sources/NtpSvr-CLi.vi.md)
     - [DHCP Server]()
 
 *[Lên đầu trang](#nux-root)*
