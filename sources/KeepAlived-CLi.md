@@ -16,6 +16,7 @@ Notes on project implementation with Linux.
     - [Refer to expanded document](#refer-to-expanded-document)
 - [BASIC INSTRUCTIONS](#basic-instructions)
     - [Install](#install)
+    - [Configuration](#configuration)
     - [Check Status](#check-status)
 - [ADVANCED INSTRUCTIONS](#advanced-instructions)
 - [COMMON EXAMPLES](#common-examples)
@@ -53,6 +54,8 @@ sudo apt install -y keepalived
 ```ssh
 sudo nano /etc/keepalived/keepalived.conf
 ```
+
+## Configuration
 - The short form is as follows.
 ```bash
 vrrp_instance string {      # identify a VRRP instance definition block
