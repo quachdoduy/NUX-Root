@@ -18,6 +18,10 @@ Notes on project implementation with Linux.
     - [Install](#install)
     - [Check Status](#check-status)
 - [ADVANCED INSTRUCTIONS](#advanced-instructions)
+- [COMMON EXAMPLES](#common-examples)
+    - [Tracking Interface](#tracking-interface)
+    - [Tracking Process](#tracking-process)
+    - [Tracking Script](#tracking-script)
 
 ---
 
