@@ -16,6 +16,7 @@ Ghi chú về việc triển khai dự án với Linux.
 - [REMOVE USER ACCOUNT](#remove-user-account)
 - [INSTALL TOOLS](#install-tools)
 - [UPDATE NEW PACKAGE](#update-new-package)
+- [SKILLS NEEDED](#skills-needed)
 
 ---
 
@@ -99,6 +100,13 @@ sudo apt install -y net-tools telnet traceroute
 Luôn thực hiện cập nhật bản mới nhất trước khi cài đặt dịch vụ.
 ```
 sudo apt update && sudo apt upgrade -y
+```
+
+# SKILLS NEEDED
+- Backup Config File
+*Thực hiện copy lại file cấu hình bạn muốn sao lưu và thêm đuôi ".original" để sao lưu file.*
+```
+cp /etc/ntp.conf /etc/ntp.conf.original
 ```
 
 *[Lên đầu trang](#nux-root--general-linux-cli)*
