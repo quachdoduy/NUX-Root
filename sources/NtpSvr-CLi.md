@@ -42,6 +42,17 @@ NTP belongs to the traditional TCP/IP protocol suite and is also the oldest serv
 - rfc-867: https://datatracker.ietf.org/doc/html/rfc867
 - rfc-868: https://datatracker.ietf.org/doc/html/rfc868
 
+## Refer to expanded document
+- NTP (Classic NTPd)
+    * website: https://www.ntp.org
+    * manual:  https://doc.ntp.org
+- Chrony
+    * website: https://chrony.tuxfamily.org
+    * manual:  https://chrony.tuxfamily.org/documentation.html
+- NTPsec
+    * website: https://www.ntpsec.org
+    * manual:  https://docs.ntpsec.org
+
 ---
 
 # BASIC INSTRUCTIONS
@@ -52,7 +63,7 @@ sudo apt update && sudo apt upgrade -y
 ```
 - Install the NTP package using the following command.
 ```
-sudo apt install -y ntp
+sudo apt install -y ntpsec
 ```
 *This command installs the NTP service on your Ubuntu system, making it ready for configuration.*
 
