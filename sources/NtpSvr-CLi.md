@@ -28,7 +28,17 @@ NTP belongs to the traditional TCP/IP protocol suite and is also the oldest serv
 ---
 
 # BASIC INSTRUCTIONS
-## Install
+## Install the NTP Service
+- Start by updating your package lists to ensure you have the latest version of the repositories.
+```
+sudo apt update && sudo apt upgrade -y
+```
+- Install the NTP package using the following command.
+```
+sudo apt install -y ntp
+```
+*This command installs the NTP service on your Ubuntu system, making it ready for configuration.*
+
 ## Configuration
 ## Check Status
 
