@@ -19,6 +19,22 @@ Notes on project implementation with Linux.
 NTP (Network Time Protocol) is a protocol used to synchronize all system clocks in a network to use the same time. 
 NTP belongs to the traditional TCP/IP protocol suite and is also the oldest service in the computer science foundation.
 
+- Below are 3 popular NTP services on server systems.
+    * NTP
+    * Chrony
+    * NTPsec
+
+- Comparison of NTP Server versions on Linux: Chrony, NTPsec and NTP.
+**| Tính năng | NTP (Classic NTPd) | Chrony | NTPsec |**
+|:---|:---|:---|:---|
+| Phát triển bởi | Network Time Foundation | Red Hat | NTPsec Project |
+| Mục tiêu chính | Dịch vụ NTP truyền thống, hỗ trợ đầy đủ các tính năng đồng bộ hóa thời gian. | Tối ưu cho môi trường không liên tục, có thể hoạt động tốt với đồng hồ hệ thống không ổn định. | Phiên bản bảo mật cao, nhẹ hơn NTP truyền thống. |
+| Bảo mật | Bảo mật kém hơn do có lịch sử lâu đời và nhiều lỗ hổng bảo mật. | Có các cải tiến bảo mật nhưng không tập trung mạnh vào bảo mật. | Được thiết kế đặc biệt để loại bỏ các lỗ hổng bảo mật trong NTP truyền thống. |
+| Hiệu suất | Hoạt động tốt nhưng có độ trễ lớn hơn trong các hệ thống di động hoặc mạng không ổn định. | Hiệu suất cao hơn, có thể đồng bộ nhanh hơn trong môi trường thay đổi liên tục. | Nhẹ hơn NTPd, cải thiện hiệu suất và giảm độ trễ. |
+| Sử dụng trong thực tế | Thích hợp cho các hệ thống yêu cầu đồng bộ hóa chính xác nhưng không cần tối ưu hiệu suất. | Tốt hơn cho các hệ thống di động, máy chủ bị mất kết nối mạng tạm thời. | Tốt cho các hệ thống cần bảo mật cao. |
+| Cấu hình đơn giản | Khó cấu hình hơn so với Chrony. | Cấu hình đơn giản, dễ tinh chỉnh. | Cấu hình gần giống NTP truyền thống nhưng tập trung vào bảo mật. |
+| Hỗ trợ giao thức NTS (Network Time Security) | Không hỗ trợ. | Không hỗ trợ. | Có hỗ trợ. |
+
 ## Refer to original document
 - website: https://www.ntppool.org
 - wiki: https://en.wikipedia.org/wiki/Network_Time_Protocol
@@ -39,7 +55,18 @@ sudo apt install -y ntp
 ```
 *This command installs the NTP service on your Ubuntu system, making it ready for configuration.*
 
-## Configuration
+- Verify your NTP installation and also check the version number by running the following command.
+```
+sntp --version
+```
+
+## Configure NTP Servers
+- Configuring your NTP servers is a critical step. Open the NTP configuration file in a text editor of your choice. Here, nano is used for simplicity.
+```
+sudo nano /etc/ntp.conf
+```
+- In the configuration file, add or modify the server lines to specify your preferred NTP servers. For example:
+
 ## Check Status
 
 ---
