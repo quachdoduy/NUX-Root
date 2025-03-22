@@ -13,7 +13,7 @@ Notes on project implementation with Linux.
 
 ---
 
-<img alt="Keep Alived" src="https://vitux.com/wp-content/uploads/ubuntu-24-04-ntp.png">
+<img alt="Keep Alived" src="../assets/images/NtpSvr-CLi.png">
 
 # PREFACE
 NTP (Network Time Protocol) is a protocol used to synchronize all system clocks in a network to use the same time. 
