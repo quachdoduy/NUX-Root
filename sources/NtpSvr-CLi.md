@@ -63,7 +63,7 @@ sudo apt update && sudo apt upgrade -y
 ```
 - Install the NTP package using the following command.
 ```
-sudo apt install -y ntpsec
+sudo apt install -y ntp
 ```
 *This command installs the NTP service on your Ubuntu system, making it ready for configuration.*
 
@@ -75,11 +75,26 @@ sntp --version
 ## Configure NTP Servers
 - Configuring your NTP servers is a critical step. Open the NTP configuration file in a text editor of your choice. Here, nano is used for simplicity.
 ```
-sudo nano /etc/ntp.conf
+sudo nano /etc/ntpsec/ntp.conf
 ```
 - In the configuration file, add or modify the server lines to specify your preferred NTP servers. For example:
 
+## Configure NTP Client
+- Change TimeZone
+```
+sudo timedatectl set-timezone Asia/Ho_Chi_Minh
+```
+
 ## Check Status
+- Check Service NTP
+```
+sudo systemctl status ntp
+```
+- Check DateTime
+```
+date
+```
+
 
 ---
 
