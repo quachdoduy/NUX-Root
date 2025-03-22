@@ -16,6 +16,7 @@ Notes on project implementation with Linux.
 - [REMOVE USER ACCOUNT](#remove-user-account)
 - [INSTALL TOOLS](#install-tools)
 - [UPDATE NEW PACKAGE](#update-new-package)
+- [SKILLS NEEDED](#skills-needed)
 
 ---
 
