@@ -26,7 +26,7 @@ NTP belongs to the traditional TCP/IP protocol suite and is also the oldest serv
 
 - Comparison of NTP Server versions on Linux: Chrony, NTPsec and NTP.
 
-**| Tính năng | NTP (Classic NTPd) | Chrony | NTPsec |**
+| **Tính năng** | **NTP (Classic NTPd)** | **Chrony** | **NTPsec** |
 |:---|:---|:---|:---|
 | Phát triển bởi | Network Time Foundation | Red Hat | NTPsec Project |
 | Mục tiêu chính | Dịch vụ NTP truyền thống, hỗ trợ đầy đủ các tính năng đồng bộ hóa thời gian. | Tối ưu cho môi trường không liên tục, có thể hoạt động tốt với đồng hồ hệ thống không ổn định. | Phiên bản bảo mật cao, nhẹ hơn NTP truyền thống. |
