@@ -13,7 +13,7 @@ Notes on project implementation with Linux.
 
 ---
 
-<img alt="Keep Alived" src="https://vitux.com/wp-content/uploads/ubuntu-24-04-ntp.png">
+<img alt="Keep Alived" src="../assets/images/NtpSvr-CLi.png">
 
 # PREFACE
 NTP (Network Time Protocol) là một giao thức được sử dụng để đồng bộ hóa tất cả các đồng hồ hệ thống trong mạng để sử dụng cùng một thời gian.
