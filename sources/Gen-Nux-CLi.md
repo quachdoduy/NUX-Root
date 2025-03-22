@@ -101,4 +101,11 @@ sudo apt install -y net-tools telnet traceroute
 sudo apt update && sudo apt upgrade -y
 ```
 
+# SKILLS NEEDED
+- Backup Config File
+*Copy the configuration file you want to backup and add the extension ".original" to backup the file.*
+```
+cp /etc/ntp.conf /etc/ntp.conf.original
+```
+
 *[Back to Top](#nux-root--general-linux-cli)*
