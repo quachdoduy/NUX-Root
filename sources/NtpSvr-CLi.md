@@ -10,6 +10,16 @@ Notes on project implementation with Linux.
 [![donate with buymeacoffe](https://img.shields.io/badge/Like_it%3F-Donate!-blue?logo=githubsponsors&logoColor=orange&style=flat)](https://buymeacoffee.com/quachdoduy)
 
 # TABLE OF CONTENTS
+- [TABLE OF CONTENTS](#table-of-contents)
+- [PREFACE](#preface)
+    - [Refer to original document](#refer-to-original-document)
+    - [Refer to expanded document](#refer-to-expanded-document)
+- [BASIC INSTRUCTIONS](#basic-instructions)
+    - [Install the NTP Service](#install-the-ntp-service)
+    - [Configure NTP Servers](#configure-ntp-servers)
+    - [Configure NTP Client](#configure-ntp-client)
+    - [Check Status](#check-status)
+- [ADVANCED INSTRUCTIONS](#advanced-instructions)
 
 ---
 
@@ -28,13 +38,13 @@ NTP belongs to the traditional TCP/IP protocol suite and is also the oldest serv
 
 | **Tính năng** | **NTP (Classic NTPd)** | **Chrony** | **NTPsec** |
 |:---|:---|:---|:---|
-| Phát triển bởi | Network Time Foundation | Red Hat | NTPsec Project |
-| Mục tiêu chính | Dịch vụ NTP truyền thống, hỗ trợ đầy đủ các tính năng đồng bộ hóa thời gian. | Tối ưu cho môi trường không liên tục, có thể hoạt động tốt với đồng hồ hệ thống không ổn định. | Phiên bản bảo mật cao, nhẹ hơn NTP truyền thống. |
-| Bảo mật | Bảo mật kém hơn do có lịch sử lâu đời và nhiều lỗ hổng bảo mật. | Có các cải tiến bảo mật nhưng không tập trung mạnh vào bảo mật. | Được thiết kế đặc biệt để loại bỏ các lỗ hổng bảo mật trong NTP truyền thống. |
-| Hiệu suất | Hoạt động tốt nhưng có độ trễ lớn hơn trong các hệ thống di động hoặc mạng không ổn định. | Hiệu suất cao hơn, có thể đồng bộ nhanh hơn trong môi trường thay đổi liên tục. | Nhẹ hơn NTPd, cải thiện hiệu suất và giảm độ trễ. |
-| Sử dụng trong thực tế | Thích hợp cho các hệ thống yêu cầu đồng bộ hóa chính xác nhưng không cần tối ưu hiệu suất. | Tốt hơn cho các hệ thống di động, máy chủ bị mất kết nối mạng tạm thời. | Tốt cho các hệ thống cần bảo mật cao. |
-| Cấu hình đơn giản | Khó cấu hình hơn so với Chrony. | Cấu hình đơn giản, dễ tinh chỉnh. | Cấu hình gần giống NTP truyền thống nhưng tập trung vào bảo mật. |
-| Hỗ trợ giao thức NTS (Network Time Security) | Không hỗ trợ. | Không hỗ trợ. | Có hỗ trợ. |
+| Developed by | Network Time Foundation | Red Hat | NTPsec Project |
+| Main objective | Traditional NTP service, fully supporting time synchronization features. | Optimized for intermittent environments, can work well with unstable system clocks. | Highly secure version, lighter than traditional NTP. |
+| Security | Less secure due to its long history and many security holes. | There are security improvements but not a strong focus on security. | Specifically designed to eliminate security vulnerabilities in traditional NTP. |
+| Efficiency | Works fine but has higher latency in mobile systems or unstable networks. | Higher performance, faster synchronization in constantly changing environments. | Lighter than NTPd, improves performance and reduces latency. |
+| Use in practice | Suitable for systems that require precise synchronization but do not need optimal performance. | Better for mobile systems, servers that lose network connection temporarily. | Good for systems that require high security. |
+| Simple configuration | More difficult to configure than Chrony. | Simple configuration, easy to customize. | The configuration is similar to traditional NTP but focuses on security. |
+| Support NTS (Network Time Security) protocol | Not supported. | Not supported. | Support available. |
 
 ## Refer to original document
 - website: https://www.ntppool.org
@@ -83,21 +93,21 @@ sudo nano /etc/ntpsec/ntp.conf
 *Note: In the example, 2 VNNIC NTP servers are used, which are published on the homepage.*
 
 ## Configure NTP Client
-- Change TimeZone
+- Change TimeZone.
 ```
 sudo timedatectl set-timezone Asia/Ho_Chi_Minh
 ```
 
 ## Check Status
-- Check Service NTP
+- Check Service NTP.
 ```
 sudo systemctl status ntp
 ```
-- Check queue NTP
+- Check queue NTP.
 ```
 ntpq -p
 ```
-- Check DateTime
+- Check DateTime.
 ```
 date
 ```
