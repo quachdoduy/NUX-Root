@@ -78,6 +78,7 @@ sntp --version
 sudo nano /etc/ntpsec/ntp.conf
 ```
 - In the configuration file, add or modify the server lines to specify your preferred NTP servers. For example:
+<img alt="NTP Config File" src="../assets/images/NtpSvr-CLi_pool.png">
 
 ## Configure NTP Client
 - Change TimeZone
@@ -89,6 +90,10 @@ sudo timedatectl set-timezone Asia/Ho_Chi_Minh
 - Check Service NTP
 ```
 sudo systemctl status ntp
+```
+- Check queue NTP
+```
+ntpq -p
 ```
 - Check DateTime
 ```
