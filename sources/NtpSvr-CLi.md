@@ -80,6 +80,8 @@ sudo nano /etc/ntpsec/ntp.conf
 - In the configuration file, add or modify the server lines to specify your preferred NTP servers. For example:
 <img alt="NTP Config File" src="../assets/images/NtpSvr-CLi_pool.png">
 
+*Note: In the example, 2 VNNIC NTP servers are used, which are published on the homepage.*
+
 ## Configure NTP Client
 - Change TimeZone
 ```
